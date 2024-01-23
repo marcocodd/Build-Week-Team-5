@@ -49,17 +49,17 @@ const arrayTitlePlaylist = [
 const createPlaylistImg = function () {
  for (let i = 0; i < 5; i++) {
   const Newcol = document.createElement("div");
-  Newcol.classList.add("col-6", "col-md-3", "col-lg-3");
+  Newcol.classList.add("col-6", "col-md-4", "col-lg-3");
   randomIndex = Math.floor(Math.random() * arrayImg.length);
 
   Newcol.innerHTML = `<div class="card h-100">
         <div class= "position-relative">
-        <img src= ${arrayImg[randomIndex]} class="card-img-top img-fluid" alt="image playlist">
+        <img src= ${arrayImg[randomIndex]} class="card-img-top" alt="image playlist">
         <a href="#" class="btn btn-success rounded-5 d-flex justify-content-center align-items-center p-0 play-button position-absolute bottom-0 end-0 opacity-0"><i class="fas fa-play text-black fs-5"></i></a>
         </div>
         <div class="card-body">
-        <h5 class="card-title">${arrayTitlePlaylist[i]}</h5>
-        <p class="card-text">playlist più calda</p>`;
+        <h6 class="card-title">${arrayTitlePlaylist[i]}</h6>
+        <p class="card-text">playlist</p>`;
   arrayImg.splice(randomIndex, 1);
 
   rowPlaylist.appendChild(Newcol);
