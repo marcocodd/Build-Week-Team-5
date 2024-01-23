@@ -28,6 +28,8 @@ const arrayTitlePlaylist = [
  "This is Artist",
  "Ascoltato di recente",
  "Best of 2023",
+ "Daily mix 1",
+ "Daily mix 2",
 ];
 
 // const hoverIn = function (event) {
