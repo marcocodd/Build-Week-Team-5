@@ -33,7 +33,6 @@ const artists = [
   'bon-jovi',
   'daft-punk',
 ]
-let album = {}
 
 // Funzioni
 
@@ -66,9 +65,7 @@ const pageLoad = function () {
           }
         })
         .then((obj) => {
-          album = { ...obj }
-          console.log('album', album)
-          firstContent(album)
+          firstContent(obj)
         })
         .catch((err) => {
           console.log(err)
@@ -81,22 +78,30 @@ const pageLoad = function () {
 
 const firstContent = function (album) {
   const contributors = function () {
+    let text
     for (let i = 0; i < album.contributors.length; i++) {
       if (i === 0) {
-        return `<a href="./Artist.html?id=${album.contributors[i].id}" class="text-white">${album.contributors[i].name}</a>`
+        text = `<a href="./Artist.html?id=${album.contributors[i].id}" class="text-capitalize text-white link-underline link-underline-opacity-0">${album.contributors[i].name}</a>`
       } else {
-        return `, <a href="./Artist.html?id=${album.contributors[i].id}" class="text-white">${album.contributors[i].name}</a>`
+        text += `, <a href="./Artist.html?id=${album.contributors[i].id}" class="text-capitalize text-white link-underline link-underline-opacity-0">${album.contributors[i].name}</a>`
       }
     }
+    return text
   }
   const genres = function () {
-    for (let i = 0; i < album.genres.data.length; i++) {
-      if (i === 0) {
-        return album.genres.data[i].name
-      } else {
-        return ', ' + album.genres.data[i].name
+    let text
+    if (album.genres.data.length === 0) {
+      text = `<a href="#" class="text-capitalize text-white link-underline link-underline-opacity-0">Altro</a>`
+    } else {
+      for (let i = 0; i < album.genres.data.length; i++) {
+        if (i === 0) {
+          text = `<a href="#" class="text-capitalize text-white link-underline link-underline-opacity-0">${album.genres.data[i].name}</a>`
+        } else {
+          text += `, <a href="#" class="text-capitalize text-white link-underline link-underline-opacity-0">${album.genres.data[i].name}</a>`
+        }
       }
     }
+    return text
   }
   const col3 = document.createElement('div')
   const col9 = document.createElement('div')
@@ -117,7 +122,17 @@ const firstContent = function (album) {
   col9.innerHTML = `
     <div class="d-flex justify-content-between align-self-stretch">
       <p class="m-0 badge">ALBUM</p>
-      <p class="m-0 badge bg-secondary-subtle text-secondary">NASCONDI ANNUNCI</p>
+      <a 
+        href="#" 
+        class="
+          m-0
+          badge
+          bg-secondary-subtle
+          text-secondary
+          link-underline
+          link-underline-opacity-0
+        "
+      >NASCONDI ANNUNCI</a>
     </div>
     <h1 class="display-custom fw-bold">
       <a 
