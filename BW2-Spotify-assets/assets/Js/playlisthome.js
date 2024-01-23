@@ -44,7 +44,7 @@ const createPlaylistImg = function () {
   Newcol.innerHTML = `<div class="card h-100">
   <div class= "position-relative">
   <img src= ${arrayImg[randomIndex]} class="card-img-top img-fluid" alt="image playlist">
-  <a href="#" class="btn btn-primary btn-sm btn-success position-absolute bottom-0 end-0 rounded-4 d-none"><i class="fas fa-play text-black p-1"></i></a>
+  <a href="#" class="btn btn-primary btn-sm btn-success position-absolute bottom-0 end-0 rounded-4"><i class="fas fa-play text-black p-1"></i></a>
   </div>
   <div class="card-body">
   <h5 class="card-title">${arrayTitlePlaylist[i]}</h5>
@@ -57,4 +57,4 @@ const createPlaylistImg = function () {
 
 createPlaylistImg();
 
-const buttonCard = document.getElementsByClassName("");
+
