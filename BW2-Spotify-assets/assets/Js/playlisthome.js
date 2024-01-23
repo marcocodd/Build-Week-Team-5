@@ -30,25 +30,36 @@ const arrayTitlePlaylist = [
  "Best of 2023",
 ];
 
-console.log(arrayImg);
+// const hoverIn = function (event) {
+//  const buttonPlay = event.querySelector("play-button");
+//  console.log(event);
+//  console.log(buttonPlay);
+//  buttonPlay.classList.add("opacity-100");
+//  buttonPlay.classList.remove("opacity-0");
+// };
+
+// const hoverOut = function (event) {
+//  const buttonPlay = event.querySelector("play-button");
+//  console.log(event);
+//  console.log(buttonPlay);
+//  buttonPlay.classList.remove("opacity-100");
+//  buttonPlay.classList.add("opacity-0");
+// };
 
 const createPlaylistImg = function () {
  for (let i = 0; i < 5; i++) {
   const Newcol = document.createElement("div");
   Newcol.classList.add("col-6", "col-md-3", "col-lg-3");
-  //const imgElement = document.createElement("img");
-  //imgElement.classList.add("img-fluid");
   randomIndex = Math.floor(Math.random() * arrayImg.length);
-  //imgElement.src = arrayImg[randomIndex];
-  //Newcol.appendChild(imgElement);
+
   Newcol.innerHTML = `<div class="card h-100">
-  <div class= "position-relative">
-  <img src= ${arrayImg[randomIndex]} class="card-img-top img-fluid" alt="image playlist">
-  <a href="#" class="btn btn-primary btn-sm btn-success position-absolute bottom-0 end-0 rounded-4"><i class="fas fa-play text-black p-1"></i></a>
-  </div>
-  <div class="card-body">
-  <h5 class="card-title">${arrayTitlePlaylist[i]}</h5>
-  <p class="card-text">playlist più calda</p>`;
+        <div class= "position-relative">
+        <img src= ${arrayImg[randomIndex]} class="card-img-top img-fluid" alt="image playlist">
+        <a href="#" class="btn btn-success rounded-5 d-flex justify-content-center align-items-center p-0 play-button position-absolute bottom-0 end-0 opacity-0"><i class="fas fa-play text-black fs-5"></i></a>
+        </div>
+        <div class="card-body">
+        <h5 class="card-title">${arrayTitlePlaylist[i]}</h5>
+        <p class="card-text">playlist più calda</p>`;
   arrayImg.splice(randomIndex, 1);
 
   rowPlaylist.appendChild(Newcol);
@@ -57,4 +68,19 @@ const createPlaylistImg = function () {
 
 createPlaylistImg();
 
+const hoverButtonPlay = function() {
+    const cards = document.getElementsByClassName('card');
+    const buttonsPlay = document.getElementsByClassName('play-button');
 
+    for (let i = 0; i < cards.length; i++) {
+        cards[i].addEventListener('mouseover', function() {
+            buttonsPlay[i].classList.add('opacity-100');
+        });
+
+        cards[i].addEventListener('mouseout', function() {
+            buttonsPlay[i].classList.remove('opacity-100');
+        });
+    }
+}
+
+hoverButtonPlay();
