@@ -27,23 +27,34 @@ const arrayTitlePlaylist = [
  "Indie",
  "This is Artist",
  "Ascoltato di recente",
- "Best of Italia 2023",
+ "Best of 2023",
 ];
 
 console.log(arrayImg);
 
 const createPlaylistImg = function () {
- for (let i = 0; i < 6; i++) {
+ for (let i = 0; i < 5; i++) {
   const Newcol = document.createElement("div");
-  Newcol.classList.add("col-6", "col-md-3", "col-lg-2");
-  const imgElement = document.createElement("img");
-  imgElement.classList.add("img-fluid");
+  Newcol.classList.add("col-6", "col-md-3", "col-lg-3");
+  //const imgElement = document.createElement("img");
+  //imgElement.classList.add("img-fluid");
   randomIndex = Math.floor(Math.random() * arrayImg.length);
-  imgElement.src = arrayImg[randomIndex];
+  //imgElement.src = arrayImg[randomIndex];
+  //Newcol.appendChild(imgElement);
+  Newcol.innerHTML = `<div class="card h-100">
+  <div class= "position-relative">
+  <img src= ${arrayImg[randomIndex]} class="card-img-top img-fluid" alt="image playlist">
+  <a href="#" class="btn btn-primary btn-sm btn-success position-absolute bottom-0 end-0 rounded-4 d-none"><i class="fas fa-play text-black p-1"></i></a>
+  </div>
+  <div class="card-body">
+  <h5 class="card-title">${arrayTitlePlaylist[i]}</h5>
+  <p class="card-text">playlist più calda</p>`;
   arrayImg.splice(randomIndex, 1);
-  Newcol.appendChild(imgElement);
+
   rowPlaylist.appendChild(Newcol);
  }
 };
 
 createPlaylistImg();
+
+const buttonCard = document.getElementsByClassName("");
