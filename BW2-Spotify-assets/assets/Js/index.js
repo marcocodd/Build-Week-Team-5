@@ -4,12 +4,48 @@ const firstContainer = document.getElementById('first-container')
 
 // Variabili
 
+const artists = [
+  'pink-floyd',
+  'scorpion',
+  'redstar',
+  'europe',
+  'metallica',
+  'guns-n-roses',
+  'ac-dc',
+  'massimo-ranieri',
+  'riccardo-cocciante',
+  'claudio-baglioni',
+  'slipknot',
+  'shakira',
+  'eminem',
+  'busta-rhymes',
+  'nwa',
+  'queen',
+  'linkin-park',
+  'bullet-for-my-valentine',
+  'gorgoroth',
+  'iron-maiden',
+  'cardi-b',
+  '50-cents',
+  'achille lauro',
+  'martin-garrix',
+  'gigi-dagostino',
+  'bon-jovi',
+  'daft-punk',
+]
 let album = {}
 
 // Funzioni
 
+const randomAlbum = function () {
+  const randomIndex = Math.floor(Math.random() * artists.length)
+  return artists[randomIndex]
+}
+
 const pageLoad = function () {
-  fetch('https://striveschool-api.herokuapp.com/api/deezer/album/7562962')
+  fetch(
+    `https://striveschool-api.herokuapp.com/api/deezer/search?q=${randomAlbum()}`
+  )
     .then((res) => {
       if (res.ok) {
         return res.json()
@@ -18,9 +54,25 @@ const pageLoad = function () {
       }
     })
     .then((data) => {
-      album = { ...data }
-      firstContent(data)
-      console.log(album)
+      const randomIndex = Math.floor(Math.random() * data.data.length)
+      fetch(
+        `https://striveschool-api.herokuapp.com/api/deezer/album/${data.data[randomIndex].album.id}`
+      )
+        .then((result) => {
+          if (result.ok) {
+            return result.json()
+          } else {
+            throw new Error(result.status)
+          }
+        })
+        .then((obj) => {
+          album = { ...obj }
+          console.log('album', album)
+          firstContent(album)
+        })
+        .catch((err) => {
+          console.log(err)
+        })
     })
     .catch((err) => {
       console.log(err)
@@ -31,7 +83,6 @@ const firstContent = function (album) {
   const contributors = function () {
     for (let i = 0; i < album.contributors.length; i++) {
       if (i === 0) {
-        console.log(album.contributors[i].id)
         return `<a href="./Artist.html?id=${album.contributors[i].id}" class="text-white">${album.contributors[i].name}</a>`
       } else {
         return `, <a href="./Artist.html?id=${album.contributors[i].id}" class="text-white">${album.contributors[i].name}</a>`
@@ -41,7 +92,6 @@ const firstContent = function (album) {
   const genres = function () {
     for (let i = 0; i < album.genres.data.length; i++) {
       if (i === 0) {
-        console.log(album.genres.data[i].name)
         return album.genres.data[i].name
       } else {
         return ', ' + album.genres.data[i].name
@@ -50,7 +100,7 @@ const firstContent = function (album) {
   }
   const col3 = document.createElement('div')
   const col9 = document.createElement('div')
-  col3.classList.add('col-3', 'py-4')
+  col3.classList.add('col-3', 'py-4', 'align-self-center')
   col9.classList.add(
     'col-9',
     'py-3',
@@ -65,8 +115,11 @@ const firstContent = function (album) {
     </a>
   `
   col9.innerHTML = `
-    <p class="m-0 badge">ALBUM</p>
-    <h1 class="display-3 fw-bold">
+    <div class="d-flex justify-content-between align-self-stretch">
+      <p class="m-0 badge">ALBUM</p>
+      <p class="m-0 badge bg-secondary-subtle text-secondary">NASCONDI ANNUNCI</p>
+    </div>
+    <h1 class="display-custom fw-bold">
       <a 
         href="./Album.html?id=${album.id}"
         class="text-white link-underline link-underline-opacity-0"

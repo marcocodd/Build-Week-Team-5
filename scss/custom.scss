@@ -35,3 +35,16 @@ footer {
   box-sizing: border-box;
   height: 10vh;
 }
+
+.display-custom {
+  font-size: 5rem;
+  @media screen and (max-width: 1399px) {
+    font-size: 4.5rem;
+  }
+  @media screen and (max-width: 1199px) {
+    font-size: 3rem;
+  }
+  @media screen and (max-width: 575px) {
+    font-size: 2.5rem;
+  }
+}
