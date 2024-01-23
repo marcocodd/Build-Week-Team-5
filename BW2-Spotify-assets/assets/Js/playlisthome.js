@@ -22,12 +22,20 @@ const arrayImg = [
  "BW2-Spotify-assets/assets/imgs/main/image-19.jpg",
 ];
 
+const arrayTitlePlaylist = [
+ "Top 50",
+ "Indie",
+ "This is Artist",
+ "Ascoltato di recente",
+ "Best of Italia 2023",
+];
+
 console.log(arrayImg);
 
 const createPlaylistImg = function () {
  for (let i = 0; i < 6; i++) {
   const Newcol = document.createElement("div");
-  Newcol.classList.add("col");
+  Newcol.classList.add("col-6", "col-md-3", "col-lg-2");
   const imgElement = document.createElement("img");
   imgElement.classList.add("img-fluid");
   randomIndex = Math.floor(Math.random() * arrayImg.length);
