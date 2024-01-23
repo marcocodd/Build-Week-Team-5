@@ -156,7 +156,9 @@
             <p class="mb-2">PROVA PROVA PROVA PROVA</p>
           </section>
         </header>
-        <main class="col-12 col-md-8 col-lg-7 mh-100 bg-secondary-subtle">
+        <main
+          class="col-12 col-md-8 col-lg-7 mh-100 bg-secondary-subtle overflow-auto"
+        >
           <div
             id="userbar"
             class="d-flex justify-content-between mt-3 sticky-top"
@@ -333,8 +335,17 @@
           </div>
 
           <!--/////////////////////DIVVONE CENTRALE/////////////////////////  -->
-        </main>
-        <aside class="col-lg-2 d-none d-lg-block border-start">
+          <!-- <div class="container-fluid">
+            <div class="row bg-black rounded-3" id="first-container"></div>
+            <div class="row g-3">
+              <h3 id="greeting"></h3>
+            </div>
+            <div class="row g-3" id="row-playlist">
+              <h3>Altro di ciò che ti piace</h3>
+            </div>
+          </div> -->
+        
+        <!-- <aside class="col-lg-2 d-none d-lg-block border-start">
           <div
             class="d-flex justify-content-between align-items-center mt-3 mb-5 pt-2"
           >
@@ -346,9 +357,10 @@
           <p class="m-0 text-center text-secondary px-3 px-xxl-5">
             Non hai ancora aggiunto nessun amico.
           </p>
-        </aside>
+        </aside> -->
       </div>
     </div>
+  </main>
     <footer class="d-none d-md-flex align-items-center justify-content-center">
       <!-- ////////////// BARRA RIPRODUZIONE ////////////// -->
 
@@ -415,6 +427,7 @@
           </p>
         </div>
       </div>
+    <nav class="fixed-bottom container-fluid d-md-none bg-black opacity-75">
       <div class="row justify-content-center">
         <a
           href="#"
@@ -442,5 +455,9 @@
       crossorigin="anonymous"
     ></script>
     <script src="./BW2-Spotify-assets/assets/Js/playBarra.js"></script>
+    <script src="./BW2-Spotify-assets/assets/Js/date.js"></script>
+    <script src="./BW2-Spotify-assets/assets/Js/greetings.js"></script>
+    <script src="./BW2-Spotify-assets/assets/Js/playlisthome.js"></script>
+    <script src="./BW2-Spotify-assets/assets/Js/index.js"></script>
   </body>
 </html>
