@@ -68,19 +68,19 @@ const createPlaylistImg = function () {
 
 createPlaylistImg();
 
-const hoverButtonPlay = function() {
-    const cards = document.getElementsByClassName('card');
-    const buttonsPlay = document.getElementsByClassName('play-button');
+const hoverButtonPlay = function () {
+ const cards = document.getElementsByClassName("card");
+ const buttonsPlay = document.getElementsByClassName("play-button");
 
-    for (let i = 0; i < cards.length; i++) {
-        cards[i].addEventListener('mouseover', function() {
-            buttonsPlay[i].classList.add('opacity-100');
-        });
+ for (let i = 0; i < cards.length; i++) {
+  cards[i].addEventListener("mouseover", function () {
+   buttonsPlay[i].classList.add("opacity-100", "fade");
+  });
 
-        cards[i].addEventListener('mouseout', function() {
-            buttonsPlay[i].classList.remove('opacity-100');
-        });
-    }
-}
+  cards[i].addEventListener("mouseout", function () {
+   buttonsPlay[i].classList.remove("opacity-100", "fade");
+  });
+ }
+};
 
 hoverButtonPlay();
