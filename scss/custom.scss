@@ -1,11 +1,10 @@
-@import "./bootstrap/functions";
-@import "./bootstrap/variables";
+@import './bootstrap/functions';
+@import './bootstrap/variables';
 
-@import "./bootstrap/bootstrap.scss";
 // NUOVE VARIABILI
 
 $new-colors: (
-  "success": #1db954,
+  'success': #1db954,
 );
 
 $theme-colors: map-merge($theme-colors, $new-colors);
@@ -50,10 +49,10 @@ $more-spacers: (
 
 $spacers: map-merge($spacers, $more-spacers);
 
-@import "./bootstrap/bootstrap.scss";
+@import './bootstrap/bootstrap.scss';
 
 body {
-  font-family: "Circular";
+  font-family: 'Circular';
   max-height: 100vh;
 }
 
@@ -74,7 +73,7 @@ body {
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 767px) {
   .hide-on-small {
     background: none !important;
     border: none !important;
@@ -109,7 +108,7 @@ footer {
   text-align: center;
 }
 
-span {
+#play-pause {
   font-size: 2em;
 }
 
