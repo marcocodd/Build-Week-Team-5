@@ -232,25 +232,107 @@
               </div>
             </div>
           </div>
-          <!-- <div
-            class="offcanvas offcanvas-end"
-            tabindex="-1"
-            id="friend-list"
-            aria-labelledby="friend-list-label"
-          >
-            <div class="offcanvas-header">
-              <h5 class="offcanvas-title" id="friend-list-label">
-                Offcanvas right
-              </h5>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="offcanvas"
-                aria-label="Close"
-              ></button>
+
+          <!--/////////////////////DIVVONE CENTRALE/////////////////////////  -->
+
+          <div class="container-fluid">
+            <div class="row g-3 justify-content-center">
+              <div class="d-flex justify-content-between">
+                <h3 id="greeting" class="ps-0 my-3"></h3>
+                <div class="d-sm-block d-md-none">
+                  <i class="fa-regular fa-bell"></i>
+                  <i class="fa-regular fa-clock mx-3"></i>
+                  <i class="fa-solid fa-gear"></i>
+                </div>
+              </div>
+              <div class="col-3 ms-1 mt-3 mb-4 d-sm-block d-md-none">
+                Musica
+              </div>
+              <div class="col-8 mt-3 mb-4 d-sm-block d-md-none">
+                Podcast e Show
+              </div>
+              <div
+                class="col-6 col-lg-4 d-flex align-items-center ps-0 mb-2 my-auto border border-dark bg-dark hide-on-small rounded"
+              >
+                <img
+                  src="./BW2-Spotify-assets/assets/imgs/search/image-50.jpg"
+                  alt="album"
+                  style="width: 80px"
+                  class="border-0 align-self-center rounded-to-left rounded-bottom-left"
+                />
+                <div class="d-flex flex-column ps-2 small">
+                  <p class="mb-0">Rockeras</p>
+                </div>
+              </div>
+              <div
+                class="col-6 col-lg-4 d-flex align-items-center ps-0 mb-2 my-auto border border-dark bg-dark hide-on-small rounded"
+              >
+                <img
+                  src="./BW2-Spotify-assets/assets/imgs/search/image-19.jpg"
+                  alt="album"
+                  style="width: 80px"
+                  class="border-0 align-self-center rounded-to-left rounded-bottom-left"
+                />
+                <div class="d-flex flex-column ps-2 small">
+                  <p class="mb-0">Island Pop</p>
+                </div>
+              </div>
+              <div
+                class="col-6 col-lg-4 d-flex align-items-center ps-0 mb-2 my-auto border border-dark bg-dark hide-on-small rounded"
+              >
+                <img
+                  src="./BW2-Spotify-assets/assets/imgs/search/image-12.jpg"
+                  alt="album"
+                  style="width: 80px"
+                  class="border-0 align-self-center rounded-to-left rounded-bottom-left"
+                />
+                <div class="d-flex flex-column ps-2 small">
+                  <p class="mb-0">All Out</p>
+                </div>
+              </div>
+              <div
+                class="col-6 col-lg-4 d-flex align-items-center ps-0 mb-2 my-auto border border-dark bg-dark hide-on-small rounded"
+              >
+                <img
+                  src="./BW2-Spotify-assets/assets/imgs/search/image-13.jpeg"
+                  alt="album"
+                  style="width: 80px"
+                  class="border-0 align-self-center rounded-to-left rounded-bottom-left"
+                />
+                <div class="d-flex flex-column ps-2 small">
+                  <p class="mb-0">Summer Hit</p>
+                </div>
+              </div>
+              <div
+                class="col-6 col-lg-4 d-flex align-items-center ps-0 mb-2 my-auto border border-dark bg-dark hide-on-small rounded"
+              >
+                <img
+                  src="./BW2-Spotify-assets/assets/imgs/search/image-47.jpg"
+                  alt="album"
+                  style="width: 80px"
+                  class="border-0 align-self-center rounded-to-left rounded-bottom-left"
+                />
+                <div class="d-flex flex-column ps-2 small">
+                  <p class="mb-0">Top Hit</p>
+                </div>
+              </div>
+              <div
+                class="col-6 col-lg-4 d-flex align-items-center ps-0 mb-2 my-auto border border-dark bg-dark hide-on-small rounded"
+              >
+                <img
+                  src="./BW2-Spotify-assets/assets/imgs/search/image-31.jpg"
+                  alt="album"
+                  style="width: 80px"
+                  class="border-0 align-self-center rounded-to-left rounded-bottom-left"
+                />
+                <div class="d-flex flex-column ps-2 small">
+                  <p class="mb-0">KICK ASS METAL</p>
+                </div>
+              </div>
             </div>
-            <div class="offcanvas-body">...</div>
-          </div> -->
+          </div>
+
+          <!--/////////////////////DIVVONE CENTRALE/////////////////////////  -->
         </main>
         <aside class="col-lg-2 d-none d-lg-block border-start">
           <div
@@ -268,11 +350,71 @@
       </div>
     </div>
     <footer class="d-none d-md-flex align-items-center justify-content-center">
-      <div>
-        <h1>PLAYER PLACEHOLDER</h1>
+      <!-- ////////////// BARRA RIPRODUZIONE ////////////// -->
+
+      <div class="container d-none d-md-block p-0 m-0">
+        <div class="row justify-content-center flex-grow-1">
+          <div class="col-lg-9 px-0 text-center">
+            <i class="fa-solid fa-shuffle" style="color: #1db954"></i>
+            <i
+              class="fas fa-step-backward opacity-75 mx-3"
+              onclick="rewind()"
+            ></i>
+            <span id="play-pause" onclick="togglePlayPause()">
+              <i class="fas fa-play-circle"></i>
+            </span>
+            <i
+              class="fas fa-step-forward opacity-75 mx-3"
+              onclick="fastForward()"
+            ></i>
+            <i class="fa-solid fa-retweet" style="color: #1db954"></i>
+            <div class="audio-player">
+              <div class="timer opacity-75" id="current-time">0:00</div>
+              <div class="progress-bar">
+                <div
+                  class="progress-bar-inner"
+                  id="progress-bar-inner"
+                  onclick="togglePlayPause()"
+                ></div>
+              </div>
+              <div class="timer opacity-75" id="timer">3:42</div>
+            </div>
+          </div>
+          <div class="col-lg-3 text-center mt-2">
+            <div class="d-flex justify-content-end">
+              <i class="fa-solid fa-microphone px-2"></i>
+              <i class="fa-solid fa-bars px-2"></i>
+              <i class="fa-brands fa-speaker-deck opacity-75"></i>
+              <div class="volume-control d-flex align-items-center px-2">
+                <i class="fa-solid fa-volume-low"></i>
+                <div class="volume-bar ml-2">
+                  <div class="volume-bar-inner"></div>
+                </div>
+              </div>
+              <i
+                class="fa-solid fa-up-right-and-down-left-from-center px-2"
+              ></i>
+            </div>
+          </div>
+        </div>
       </div>
+
+      <!-- ////////////// BARRA RIPRODUZIONE ////////////// -->
     </footer>
+
     <nav class="fixed-bottom container-fluid d-md-none">
+      <div class="row text-center">
+        <div
+          class="col-10 px-0 py-2 ms-5 mb-3 fs-3 border border-dark bg-dark rounded"
+        >
+          <p class="m-0">
+            prova prova prova
+            <i class="fa-brands fa-speaker-deck opacity-75"></i>
+            <i class="fa-regular fa-heart mx-3"></i>
+            <i class="fa-solid fa-play"></i>
+          </p>
+        </div>
+      </div>
       <div class="row justify-content-center">
         <a
           href="#"
@@ -299,6 +441,6 @@
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
-    <script src="./BW2-Spotify-assets/assets/Js/date.js"></script>
+    <script src="./BW2-Spotify-assets/assets/Js/playBarra.js"></script>
   </body>
 </html>

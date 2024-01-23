@@ -12000,7 +12000,81 @@ body {
   }
 }
 
+@media (max-width: 800px) {
+  .hide-on-small {
+    background: none !important;
+    border: none !important;
+  }
+  .hide-on-small .d-flex {
+    text-align: center;
+    justify-content: center;
+  }
+  .hide-on-small img {
+    width: 80px;
+    border: 0;
+    align-self: center;
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+  }
+}
 footer {
   box-sizing: border-box;
   height: 10vh;
+}
+
+.audio-player {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  margin: auto;
+}
+
+.timer {
+  width: 50px;
+  text-align: center;
+}
+
+span {
+  font-size: 2em;
+}
+
+.progress-bar {
+  flex-grow: 2;
+  height: 8px;
+  background-color: #535353;
+}
+
+.progress-bar-inner {
+  height: 100%;
+  width: 50%; /* Cambiare questa percentuale per regolare la barra di progresso */
+  background-color: white;
+  animation: progress-animation linear infinite;
+}
+
+@keyframes progress-animation {
+  to {
+    width: 100%;
+  }
+}
+.volume-control {
+  display: flex;
+  align-items: center;
+}
+
+.fa-volume-low {
+  margin-right: 4px; /* Aggiungi spazio tra l'icona e la barra del volume */
+  font-size: 16px; /* Imposta la dimensione dell'icona */
+}
+
+.volume-bar {
+  height: 4px; /* Altezza della barra del volume */
+  width: 40px; /* Larghezza della barra del volume */
+  background-color: #535353;
+  position: relative;
+}
+
+.volume-bar-inner {
+  height: 100%;
+  width: 50%; /* Percentuale di volume attuale, puoi regolare questa percentuale */
+  background-color: white;
 }/*# sourceMappingURL=custom.css.map */
