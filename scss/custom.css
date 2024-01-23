@@ -12022,4 +12022,9 @@ footer {
   .display-custom {
     font-size: 2.5rem;
   }
+}
+
+.play-button {
+  height: 48px;
+  width: 48px;
 }/*# sourceMappingURL=custom.css.map */
