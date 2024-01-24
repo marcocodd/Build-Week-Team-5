@@ -1,8 +1,8 @@
-const urlAlbum = new URLSearchParams(window.location.search);
-const idAlbum = urlAlbum.get("id");
-const urlFetch = "https://striveschool-api.herokuapp.com/api/deezer/album/";
+const urlMainAlbum = new URLSearchParams(window.location.search);
+const idMainAlbum = urlMainAlbum.get("id");
+const urlMainFetch = "https://striveschool-api.herokuapp.com/api/deezer/album/";
 
-fetch(urlFetch + idAlbum)
+fetch(urlMainFetch + idMainAlbum)
   .then((response) => {
     if (response.ok) {
       return response.json();
