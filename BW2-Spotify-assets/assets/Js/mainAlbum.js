@@ -1,35 +1,36 @@
-// Funzione per ottenere la media dei colori di un'immagine
+// Funzione per la media dei colori
+
 function getAverageColor(imageUrl, callback) {
- var img = new Image();
+ let img = new Image();
  img.crossOrigin = "Anonymous";
  img.src = imageUrl;
 
  img.onload = function () {
-  var canvas = document.createElement("canvas");
-  var ctx = canvas.getContext("2d");
+  let canvas = document.createElement("canvas");
+  let ctx = canvas.getContext("2d");
 
   canvas.width = img.width;
   canvas.height = img.height;
   ctx.drawImage(img, 0, 0);
 
-  var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+  let imageData = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
 
-  var sumRed = 0,
+  let sumRed = 0,
    sumGreen = 0,
    sumBlue = 0;
 
-  for (var i = 0; i < imageData.length; i += 4) {
+  for (let i = 0; i < imageData.length; i += 4) {
    sumRed += imageData[i];
    sumGreen += imageData[i + 1];
    sumBlue += imageData[i + 2];
   }
 
-  var pixelCount = imageData.length / 4;
-  var averageRed = sumRed / pixelCount;
-  var averageGreen = sumGreen / pixelCount;
-  var averageBlue = sumBlue / pixelCount;
+  let pixelCount = imageData.length / 4;
+  let averageRed = sumRed / pixelCount;
+  let averageGreen = sumGreen / pixelCount;
+  let averageBlue = sumBlue / pixelCount;
 
-  var averageColor = {
+  let averageColor = {
    red: Math.round(averageRed),
    green: Math.round(averageGreen),
    blue: Math.round(averageBlue),
@@ -39,10 +40,14 @@ function getAverageColor(imageUrl, callback) {
  };
 }
 
-// Funzione per applicare lo sfondo basato sulla media dei colori
+// Funzione per applicare lo sfondo
+
 function applyBackgroundColor(albumContainer, averageColor) {
+ albumContainer.style.transition = "background-color 0.5s ease";
  albumContainer.style.backgroundColor = `rgb(${averageColor.red}, ${averageColor.green}, ${averageColor.blue})`;
 }
+
+// id e url per fetch
 const urlMainAlbum = new URLSearchParams(window.location.search);
 const idMainAlbum = urlMainAlbum.get("id");
 const urlMainFetch = "https://striveschool-api.herokuapp.com/api/deezer/album/";
@@ -136,10 +141,17 @@ fetch(urlMainFetch + idMainAlbum)
 
   const albumImage = document.getElementById("albumImage");
 
-  // Chiamata alla funzione per ottenere la media dei colori e applicare lo sfondo
+  // Chiamata alla funzione per ottenere la media dei colori e applicare lo sfondo al main
   getAverageColor(albumData.cover_xl, function (averageColor) {
-   applyBackgroundColor(albumContainer, averageColor);
+   // Applica lo sfondo al main
+   const mainElement = document.getElementById("background-avg");
+   applyBackgroundColor(mainElement, averageColor);
   });
+
+  // // Chiamata alla funzione per ottenere la media dei colori e applicare lo sfondo
+  // getAverageColor(albumData.cover_xl, function (averageColor) {
+  //  applyBackgroundColor(albumContainer, averageColor);
+  // });
  })
  .catch((error) => {
   console.log(error);
