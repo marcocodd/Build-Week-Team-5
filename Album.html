@@ -156,10 +156,10 @@
             <p class="mb-2">PROVA PROVA PROVA PROVA</p>
           </section>
         </header>
-        <main class="col-12 col-md-8 col-lg-7 mh-100 bg-secondary-subtle">
+        <main class="col-12 col-md-8 col-lg-7 mh-100 bg-secondary-subtle p-0">
           <div
             id="userbar"
-            class="d-flex justify-content-between mt-3 sticky-top"
+            class="d-flex justify-content-between mt-3 mx-3 sticky-top"
           >
             <div>
               <a href="#" class="fs-3 text-black me-2"
@@ -232,25 +232,32 @@
               </div>
             </div>
           </div>
-          <!-- <div
-            class="offcanvas offcanvas-end"
-            tabindex="-1"
-            id="friend-list"
-            aria-labelledby="friend-list-label"
-          >
-            <div class="offcanvas-header">
-              <h5 class="offcanvas-title" id="friend-list-label">
-                Offcanvas right
-              </h5>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="offcanvas"
-                aria-label="Close"
-              ></button>
+
+          <!--/////////////////////DIVVONE CENTRALE/////////////////////////  -->
+
+          <div class="container-fluid">
+            <div class="row" id="main-card">
+              <!-- CARD ALBUM PRINCIPALE -->
+              <!-- <div class="col"></div> -->
             </div>
-            <div class="offcanvas-body">...</div>
-          </div> -->
+          </div>
+          <div class="container-fluid">
+            <div class="row">
+              <!-- TASTI (PLAY ETC.) -->
+              <div class="col"></div>
+            </div>
+            <!-- TABELLA -->
+            <div class="row border-bottom">
+              <div class="col-1">#</div>
+              <div class="col-6">TITOLO</div>
+              <div class="col-4">RIPRODUZIONI</div>
+              <div class="col-1"><i class="fa-regular fa-clock"></i></div>
+            </div>
+            <!-- ROW PER CANZONI INSERITE CON JS -->
+            <div class="row" id="songs"></div>
+          </div>
+
+          <!--/////////////////////DIVVONE CENTRALE/////////////////////////  -->
         </main>
         <aside class="col-lg-2 d-none d-lg-block border-start">
           <div
