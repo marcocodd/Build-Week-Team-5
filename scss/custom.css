@@ -13742,4 +13742,27 @@ footer {
 .play-button {
   height: 48px;
   width: 48px;
+}
+
+.custom-badge {
+  height: 20px;
+  width: 20px;
+}
+
+#main-container {
+  height: 350px;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgba(0, 212, 255, 0) 60%);
+}
+
+#artist-main {
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+.btn-custom {
+  border: none;
+  background: none;
+  border: 1px solid white;
+  font-weight: 500;
 }/*# sourceMappingURL=custom.css.map */

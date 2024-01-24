@@ -149,7 +149,7 @@ const firstContent = function (album) {
       >
         Play
       </button>
-      <button class="btn btn-dark rounded-5 px-4 py-2 me-4">
+      <button class="btn-custom rounded-5 px-4 py-2 me-4">
         Salva
       </button>
       <a href="#" class="text-secondary"
