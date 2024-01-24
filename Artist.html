@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Spotify - Artist (BW2 - Team 5)</title>
+    <title>Spotify - Album (BW2 - Team 5)</title>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
@@ -156,10 +156,16 @@
             <p class="mb-2">PROVA PROVA PROVA PROVA</p>
           </section>
         </header>
-        <main class="col-12 col-md-8 col-lg-7 mh-100 bg-secondary-subtle">
+        <main
+          class="col-12 col-md-8 col-lg-7 mh-100 bg-secondary-subtle p-0 d-flex flex-column"
+          id="artist-main"
+          style="
+            background: url('https://e-cdns-images.dzcdn.net/images/artist/1ab642216454f5e5e02c234f93af481c/1000x1000-000000-80-0-0.jpg');
+          "
+        >
           <div
             id="userbar"
-            class="d-flex justify-content-between mt-3 sticky-top"
+            class="d-flex justify-content-between mt-3 mx-3 sticky-top"
           >
             <div>
               <a href="#" class="fs-3 text-black me-2"
@@ -232,25 +238,89 @@
               </div>
             </div>
           </div>
-          <!-- <div
-            class="offcanvas offcanvas-end"
-            tabindex="-1"
-            id="friend-list"
-            aria-labelledby="friend-list-label"
-          >
-            <div class="offcanvas-header">
-              <h5 class="offcanvas-title" id="friend-list-label">
-                Offcanvas right
-              </h5>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="offcanvas"
-                aria-label="Close"
-              ></button>
+
+          <!--/////////////////////DIVVONE CENTRALE/////////////////////////  -->
+
+          <div class="container-fluid" id="main-container">
+            <!-- NOME ARTISTA + ASCOLTATORI -->
+            <div class="row px-3 align-items-end h-100">
+              <div class="col">
+                <p class="m-0">
+                  <i class="bi bi-patch-check-fill text-primary"></i>
+                  Artista verificato
+                </p>
+                <h1 id="artist" class="display-custom fw-bold">PROVA</h1>
+                <p><span id="fans"></span> ascoltatori mensili</p>
+              </div>
             </div>
-            <div class="offcanvas-body">...</div>
+          </div>
+
+          <div class="container-fluid bg-black bg-gradient flex-grow-1">
+            <div class="row pt-3 mb-4 px-3">
+              <div class="col d-flex align-items-center">
+                <a
+                  href="#"
+                  class="btn btn-success rounded-5 d-flex justify-content-center align-items-center p-0 play-button me-4"
+                  ><i class="fas fa-play text-black fs-5"></i
+                ></a>
+                <button
+                  class="me-4 btn-custom bg-secondary-subtle badge py-2 px-3"
+                >
+                  FOLLOWING
+                </button>
+                <a href="#" class="text-secondary"
+                  ><i class="fa-solid fa-ellipsis fs-4"></i
+                ></a>
+              </div>
+            </div>
+            <div class="row px-3 g-4">
+              <div class="col-7">
+                <h5 class="mb-4">Popolari</h5>
+                <div class="container-fluid">
+                  <!-- CANZONI DELL'ARTISTA MESSE TRAMITE JS -->
+                  <div class="row align-items-center" id="songs">
+                    <!-- <div class="col-1">0</div>
+          <div class="col-1">
+            <img src="https://placekitten.com/30" alt="test" />
+          </div>
+          <div class="col-5">PROVA</div>
+          <div class="col-4">123123</div>
+          <div class="col-1">1.23</div> -->
+                  </div>
+                </div>
+              </div>
+              <div class="col-5">
+                <h5 class="mb-4">Brani che ti piacciono</h5>
+                <div class="container-fluid">
+                  <!-- LIKE A CANZONI DA PROGRAMMARE TRAMITE JS -->
+                  <!-- <div class="row" id="liked-songs">
+          <div class="col-12 d-flex align-items-center">
+            <div class="position-relative">
+              <img
+                src="https://placekitten.com/80"
+                alt="test"
+                class="rounded-circle me-3"
+              />
+              <div
+                class="position-absolute end-20 bottom-0 bg-success d-inline-block rounded-circle d-flex justify-content-center align-items-center custom-badge"
+              >
+                ♥
+              </div>
+            </div>
+            <div>
+              <h6>
+                Hai messo Mi piace a
+                <span id="like-number">00</span> brani
+              </h6>
+              <p class="m-0">di ARTISTA</p>
+            </div>
           </div> -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--/////////////////////DIVVONE CENTRALE/////////////////////////  -->
         </main>
         <aside class="col-lg-2 d-none d-lg-block border-start">
           <div
