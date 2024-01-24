@@ -2,35 +2,6 @@ const urlAlbum = new URLSearchParams(window.location.search);
 const idAlbum = urlAlbum.get("id");
 const urlFetch = "https://striveschool-api.herokuapp.com/api/deezer/album/";
 
-// Funzione per calcolare il colore medio di un'immagine
-const getAverageColor = function (img) {
-  const canvas = document.createElement("canvas");
-  const ctx = canvas.getContext("2d");
-  canvas.width = img.width;
-  canvas.height = img.height;
-  ctx.drawImage(img, 0, 0, img.width, img.height);
-
-  // Ottieni l'immagine dei dati pixel
-  const imageData = ctx.getImageData(0, 0, img.width, img.height).data;
-
-  // Calcola il colore medio
-  let totalR = 0;
-  let totalG = 0;
-  let totalB = 0;
-
-  for (let i = 0; i < imageData.length; i += 4) {
-    totalR += imageData[i];
-    totalG += imageData[i + 1];
-    totalB += imageData[i + 2];
-  }
-
-  const avgR = Math.floor(totalR / (imageData.length / 4));
-  const avgG = Math.floor(totalG / (imageData.length / 4));
-  const avgB = Math.floor(totalB / (imageData.length / 4));
-
-  return `rgb(${avgR}, ${avgG}, ${avgB})`;
-};
-
 fetch(urlFetch + idAlbum)
   .then((response) => {
     if (response.ok) {
@@ -83,9 +54,9 @@ fetch(urlFetch + idAlbum)
     // Popolare dinamicamente la pagina ALBUM
     const albumContainer = document.getElementById("main-card");
     albumContainer.innerHTML = `
-  <div class="col-3 py-4 text-center align-self-center">
+    <div class="col-3 py-4 text-center align-self-center">
     <a href="./Album.html?id=${albumData.id}">
-      <img id="album-image" src="${albumData.cover_xl}" alt="${
+      <img src="${albumData.cover_xl}" alt="${
       albumData.md5_image
     }" class="w-100">
     </a>
@@ -115,13 +86,8 @@ fetch(urlFetch + idAlbum)
       </p>
     </div>
   </div>
-`;
-    // Ottieni il colore medio dell'immagine e imposta lo sfondo della pagina
-    const albumImage = document.getElementById("album-image");
-    albumImage.onload = function () {
-      const averageColor = getAverageColor(albumImage);
-      document.body.style.background = averageColor;
-    };
+
+    `;
   })
   .catch((error) => {
     console.log(error);
