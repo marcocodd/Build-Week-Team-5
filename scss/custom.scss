@@ -211,3 +211,18 @@ footer {
   border: 1px solid white;
   font-weight: 500;
 }
+
+#friendlist-btn {
+  border: none;
+  background: none;
+  background-color: black;
+  border-radius: 50%;
+  color: white;
+  padding: 0;
+  height: 28px;
+  width: 28px;
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

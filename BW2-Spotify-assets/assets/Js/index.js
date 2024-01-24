@@ -7,7 +7,7 @@ const firstContainer = document.getElementById('first-container')
 const artists = [
   'pink-floyd',
   'scorpion',
-  'redstar',
+  'jennifer lopez',
   'europe',
   'metallica',
   'guns-n-roses',
