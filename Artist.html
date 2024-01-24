@@ -157,7 +157,7 @@
           </section>
         </header>
         <main
-          class="col-12 col-md-8 col-lg-7 mh-100 bg-secondary-subtle p-0 d-flex flex-column"
+          class="col-12 col-md-8 col-lg-7 mh-100 bg-secondary-subtle p-0 d-flex flex-column overflow-auto"
           id="artist-main"
         >
           <div
@@ -241,12 +241,13 @@
           <div class="container-fluid" id="main-container">
             <!-- NOME ARTISTA + ASCOLTATORI -->
             <div class="row px-3 align-items-end h-100">
+              <div id="spacer"></div>
               <div class="col">
                 <p class="m-0">
                   <i class="bi bi-patch-check-fill text-primary"></i>
                   Artista verificato
                 </p>
-                <h1 id="artist" class="display-custom fw-bold">PROVA</h1>
+                <h1 id="artist" class="display-1 fw-bold">PROVA</h1>
                 <p><span id="fans"></span> ascoltatori mensili</p>
               </div>
             </div>
@@ -270,48 +271,51 @@
                 ></a>
               </div>
             </div>
-            <div class="row px-3 g-4">
-              <div class="col-7">
+            <div class="row gy-4 gx-3">
+              <div class="col-12 col-xxl-7 px-1 px-sm-3 fw-normal">
                 <h5 class="mb-4">Popolari</h5>
                 <div class="container-fluid">
                   <!-- CANZONI DELL'ARTISTA MESSE TRAMITE JS -->
-                  <div class="row align-items-center" id="songs">
+                  <div
+                    class="row align-items-center justify-content-between gy-3 gx-2 gx-sm-3"
+                    id="songs"
+                  >
                     <!-- <div class="col-1">0</div>
-          <div class="col-1">
-            <img src="https://placekitten.com/30" alt="test" />
-          </div>
-          <div class="col-5">PROVA</div>
-          <div class="col-4">123123</div>
-          <div class="col-1">1.23</div> -->
+                          <div class="col-1">
+                            <img src="https://placekitten.com/30" alt="test" />
+                          </div>
+                          <div class="col-5">PROVA</div>
+                          <div class="col-4">123123</div>
+                          <div class="col-1">1.23</div> -->
                   </div>
                 </div>
               </div>
-              <div class="col-5">
+              <div class="col-12 col-xxl-5">
                 <h5 class="mb-4">Brani che ti piacciono</h5>
                 <div class="container-fluid">
                   <!-- LIKE A CANZONI DA PROGRAMMARE TRAMITE JS -->
                   <!-- <div class="row" id="liked-songs">
-          <div class="col-12 d-flex align-items-center">
-            <div class="position-relative">
-              <img
-                src="https://placekitten.com/80"
-                alt="test"
-                class="rounded-circle me-3"
-              />
-              <div
-                class="position-absolute end-20 bottom-0 bg-success d-inline-block rounded-circle d-flex justify-content-center align-items-center custom-badge"
-              >
-                ♥
-              </div>
-            </div>
-            <div>
-              <h6>
-                Hai messo Mi piace a
-                <span id="like-number">00</span> brani
-              </h6>
-              <p class="m-0">di ARTISTA</p>
-            </div>
-          </div> -->
+                  <div class="col-12 d-flex align-items-center">
+                    <div class="position-relative">
+                      <img
+                        src="https://placekitten.com/80"
+                        alt="test"
+                        class="rounded-circle me-3"
+                      />
+                      <div
+                        class="position-absolute end-20 bottom-0 bg-success d-inline-block rounded-circle d-flex justify-content-center align-items-center custom-badge"
+                      >
+                        ♥
+                      </div>
+                    </div>
+                    <div>
+                      <h6>
+                        Hai messo Mi piace a
+                        <span id="like-number">00</span> brani
+                      </h6>
+                      <p class="m-0">di ARTISTA</p>
+                    </div>
+                  </div> -->
                 </div>
               </div>
             </div>
@@ -367,5 +371,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="./BW2-Spotify-assets/assets/Js/date.js"></script>
+    <script src="./BW2-Spotify-assets/assets/Js/artist.js"></script>
   </body>
 </html>
