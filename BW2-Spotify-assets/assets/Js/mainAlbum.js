@@ -160,6 +160,7 @@ fetch(urlMainFetch + idMainAlbum)
     // getAverageColor(albumData.cover_xl, function (averageColor) {
     //  applyBackgroundColor(albumContainer, averageColor);
     // });
+    sessionStorage.removeItem("albumid");
   })
   .catch((error) => {
     console.log(error);
