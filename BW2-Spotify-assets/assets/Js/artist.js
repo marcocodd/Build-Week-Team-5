@@ -6,7 +6,6 @@ const songContainer = document.getElementById('songs')
 const main = document.getElementById('artist-main')
 const artistSpan = document.getElementById('artist-like')
 const artistImg = document.getElementById('img-like')
-const audioSrc = document.getElementsByTagName('source')[0]
 
 // Variabili
 

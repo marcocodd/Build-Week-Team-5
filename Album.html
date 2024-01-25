@@ -258,11 +258,12 @@
             <div class="row my-3 align-items-center">
               <!-- TASTI (PLAY ETC.) -->
               <div class="col-2">
-                <a
-                  href="#"
+                <button
                   class="btn btn-success rounded-5 d-flex justify-content-center align-items-center p-0 play-button"
-                  ><i class="fas fa-play text-black fs-5"></i>
-                </a>
+                  id="main-play-button"
+                >
+                  <i id="main-playicon" class="fas fa-play text-black fs-5"></i>
+                </button>
               </div>
               <div class="col-1"><i class="bi bi-heart"></i></div>
               <div class="col-1">
@@ -384,11 +385,101 @@
         </aside>
       </div>
     </div>
-    <footer class="d-none d-md-flex align-items-center justify-content-center">
-      <div>
-        <h1>PLAYER PLACEHOLDER</h1>
+
+    <footer
+      class="d-none d-md-flex align-items-center justify-content-center bg-secondary-subtle border-top border-dark"
+    >
+      <div class="container-fluid h-100 px-3">
+        <div class="row h-100 py-1 align-items-center">
+          <!-- Album + canzone -->
+          <div
+            class="col-3 h-75 d-flex align-items-center justify-content-between"
+          >
+            <div class="h-100 w-100 d-none align-items-center" id="song-data">
+              <div class="h-100 d-flex w-100">
+                <a href="#">
+                  <img
+                    src="https://e-cdns-images.dzcdn.net/images/cover/8f7ff24dbbb77f281bf7f7ae0be72c0c/1000x1000-000000-80-0-0.jpg"
+                    alt="test"
+                    class="h-100"
+                /></a>
+                <div
+                  class="d-flex flex-column align-items-start justify-content-center ms-2"
+                >
+                  <p class="m-0 mb-1 d-inline">
+                    Another Brick In The Wall, Pt. 2 (2011 Remastered Version)
+                  </p>
+                  <p class="m-0 p-0 fw-normal badge opacity-75 d-inline">
+                    <a
+                      href="#"
+                      class="text-white link-underline link-underline-opacity-0"
+                      >Pink Floyd</a
+                    >
+                  </p>
+                </div>
+              </div>
+              <a href="#" class="text-white">
+                <i class="bi bi-suit-heart"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Player -->
+          <div
+            class="col-6 h-75 d-flex flex-column justify-content-between align-items-center"
+          >
+            <div class="d-flex mb-2">
+              <button id="randomize" class="position-relative" disabled>
+                <i class="fa-solid fa-shuffle"></i>
+                <i class="fa-solid fa-circle active-dot d-none"></i>
+              </button>
+              <button id="playerbar-back" disabled>
+                <i class="fa-solid fa-backward-step"></i>
+              </button>
+              <button id="playerbar-play" disabled>
+                <i id="playerbar-playicon" class="fa-solid fa-play"></i>
+              </button>
+              <button id="playerbar-next" disabled>
+                <i class="fa-solid fa-forward-step"></i>
+              </button>
+              <button id="repeat" class="position-relative" disabled>
+                <i class="fa-solid fa-retweet"></i>
+                <i class="fa-solid fa-circle active-dot d-none"></i>
+              </button>
+            </div>
+            <div class="w-75 d-flex align-items-center justify-content-between">
+              <span class="minutes" id="current-time">0:00</span>
+              <div id="progress-bar">
+                <div id="progress-bar-inner"></div>
+              </div>
+              <span class="minutes" id="total-time">--:--</span>
+            </div>
+          </div>
+
+          <!-- Volume -->
+          <div class="col-3 h-100">
+            <div
+              class="d-flex flex-column justify-content-around align-items-center h-100 w-100"
+            >
+              <audio class="d-none" controls>
+                <source src="" type="audio/mpeg" />
+              </audio>
+              <div
+                class="d-flex align-items-center justify-content-center w-100"
+              >
+                <button id="volume-button" disabled>
+                  <i id="volume-icon" class="fa-solid fa-volume-high"></i>
+                </button>
+                <div id="volume-bar">
+                  <div id="volume-bar-inner"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </footer>
+
     <nav class="fixed-bottom container-fluid d-md-none">
       <div class="row justify-content-center">
         <a
@@ -419,5 +510,6 @@
     <script src="./BW2-Spotify-assets/assets/Js/date.js"></script>
     <script src="./BW2-Spotify-assets/assets/Js/mainAlbum.js"></script>
     <script src="./BW2-Spotify-assets/assets/Js/albumTracks.js"></script>
+    <script src="./BW2-Spotify-assets/assets/Js/playerbar.js"></script>
   </body>
 </html>
