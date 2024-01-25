@@ -161,7 +161,7 @@ footer {
 .display-custom {
   font-size: 5rem;
   @media screen and (max-width: 1399px) {
-    font-size: 4.5rem;
+    font-size: 4rem;
   }
   @media screen and (max-width: 1199px) {
     font-size: 3rem;
@@ -185,13 +185,19 @@ footer {
 }
 
 #main-container {
-  height: 350px;
   background: rgb(0, 0, 0);
   background: linear-gradient(
     0deg,
     rgba(0, 0, 0, 1) 0%,
     rgba(0, 212, 255, 0) 60%
   );
+}
+
+#spacer {
+  height: 150px;
+  @media screen and (max-width: 767px) {
+    height: 100px;
+  }
 }
 
 #artist-main {
@@ -204,4 +210,19 @@ footer {
   background: none;
   border: 1px solid white;
   font-weight: 500;
+}
+
+#friendlist-btn {
+  border: none;
+  background: none;
+  background-color: black;
+  border-radius: 50%;
+  color: white;
+  padding: 0;
+  height: 28px;
+  width: 28px;
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
