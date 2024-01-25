@@ -1,10 +1,10 @@
-@import './bootstrap/functions';
-@import './bootstrap/variables';
+@import "./bootstrap/functions";
+@import "./bootstrap/variables";
 
 // NUOVE VARIABILI
 
 $new-colors: (
-  'success': #1db954,
+  "success": #1db954,
 );
 
 $theme-colors: map-merge($theme-colors, $new-colors);
@@ -50,12 +50,12 @@ $more-spacers: (
 
 $spacers: map-merge($spacers, $more-spacers);
 
-@import './bootstrap/bootstrap.scss';
+@import "./bootstrap/bootstrap.scss";
 
 // ALTRE REGOLE
 
 body {
-  font-family: 'Circular';
+  font-family: "Circular";
   max-height: 100vh;
 }
 
@@ -161,7 +161,7 @@ footer {
 .display-custom {
   font-size: 5rem;
   @media screen and (max-width: 1399px) {
-    font-size: 4.5rem;
+    font-size: 4rem;
   }
   @media screen and (max-width: 1199px) {
     font-size: 3rem;
@@ -185,13 +185,19 @@ footer {
 }
 
 #main-container {
-  height: 350px;
   background: rgb(0, 0, 0);
   background: linear-gradient(
     0deg,
     rgba(0, 0, 0, 1) 0%,
     rgba(0, 212, 255, 0) 60%
   );
+}
+
+#spacer {
+  height: 150px;
+  @media screen and (max-width: 767px) {
+    height: 100px;
+  }
 }
 
 #artist-main {
@@ -208,4 +214,19 @@ footer {
 
 #friend-span{
   font-size: 12px;
+}
+
+#friendlist-btn {
+  border: none;
+  background: none;
+  background-color: black;
+  border-radius: 50%;
+  color: white;
+  padding: 0;
+  height: 28px;
+  width: 28px;
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

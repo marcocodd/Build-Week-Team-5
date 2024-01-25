@@ -13725,7 +13725,7 @@ footer {
 }
 @media screen and (max-width: 1399px) {
   .display-custom {
-    font-size: 4.5rem;
+    font-size: 4rem;
   }
 }
 @media screen and (max-width: 1199px) {
@@ -13750,9 +13750,17 @@ footer {
 }
 
 #main-container {
-  height: 350px;
   background: rgb(0, 0, 0);
   background: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgba(0, 212, 255, 0) 60%);
+}
+
+#spacer {
+  height: 150px;
+}
+@media screen and (max-width: 767px) {
+  #spacer {
+    height: 100px;
+  }
 }
 
 #artist-main {
@@ -13769,4 +13777,19 @@ footer {
 
 #friend-span {
   font-size: 12px;
+}
+
+#friendlist-btn {
+  border: none;
+  background: none;
+  background-color: black;
+  border-radius: 50%;
+  color: white;
+  padding: 0;
+  height: 28px;
+  width: 28px;
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }/*# sourceMappingURL=custom.css.map */

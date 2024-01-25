@@ -37,7 +37,7 @@
                 </div>
                 <i class="bi bi-house-door fs-4 col-3 col-xxl-2"></i>
                 <a
-                  href="#"
+                  href="./Index.html"
                   class="col-9 col-xxl-10 link-underline link-underline-opacity-0 nav-link"
                   >Home</a
                 >
@@ -156,7 +156,9 @@
             <p class="mb-2">PROVA PROVA PROVA PROVA</p>
           </section>
         </header>
-        <main class="col-12 col-md-8 col-lg-7 mh-100 bg-secondary-subtle p-0">
+        <main
+          class="col-12 col-md-8 col-lg-7 mh-100 bg-secondary-subtle p-0 overflow-auto"
+        >
           <div
             id="userbar"
             class="d-flex justify-content-between mt-3 mx-3 sticky-top"
@@ -174,7 +176,7 @@
               ></a>
             </div>
             <div class="d-flex align-items-center">
-              <div class="dropdown">
+              <div class="dropdown me-2">
                 <button
                   class="btn bg-black dropdown-toggle rounded-5 p-0 pe-2 d-flex align-items-center"
                   type="button"
@@ -230,6 +232,9 @@
                   </li>
                 </ul>
               </div>
+              <button id="friendlist-btn" class="d-none d-lg-block">
+                <i class="fa-solid fa-users"></i>
+              </button>
             </div>
           </div>
 
@@ -254,12 +259,19 @@
               <div class="col-1"><i class="fa-regular fa-clock"></i></div>
             </div>
             <!-- ROW PER CANZONI INSERITE CON JS -->
-            <div class="row" id="songs"></div>
+            <div class="row gy-3 align-items-center" id="songs">
+              <!-- <div class="col-1">1 </div>
+              <div class="col-6">Come stai
+                <div class="col">pinguini</div>
+              </div>
+              <div class="col-4">12512512512</div>
+              <div class="col-1">3:50</div> -->
+            </div>
           </div>
 
           <!--/////////////////////DIVVONE CENTRALE/////////////////////////  -->
         </main>
-        <aside class="col-lg-2 d-none d-lg-block border-start">
+        <aside class="col-lg-2 d-none d-lg-block border-start" id="friendlist">
           <div
             class="d-flex justify-content-between align-items-center mt-3 mb-5 pt-2"
           >
@@ -307,5 +319,7 @@
       crossorigin="anonymous"
     ></script>
     <script src="./BW2-Spotify-assets/assets/Js/date.js"></script>
+    <script src="./BW2-Spotify-assets/assets/Js/mainAlbum.js"></script>
+    <script src="./BW2-Spotify-assets/assets/Js/albumTracks.js"></script>
   </body>
 </html>

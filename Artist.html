@@ -37,7 +37,7 @@
                 </div>
                 <i class="bi bi-house-door fs-4 col-3 col-xxl-2"></i>
                 <a
-                  href="#"
+                  href="./Index.html"
                   class="col-9 col-xxl-10 link-underline link-underline-opacity-0 nav-link"
                   >Home</a
                 >
@@ -177,7 +177,7 @@
               ></a>
             </div>
             <div class="d-flex align-items-center">
-              <div class="dropdown">
+              <div class="dropdown me-2">
                 <button
                   class="btn bg-black dropdown-toggle rounded-5 p-0 pe-2 d-flex align-items-center"
                   type="button"
@@ -233,6 +233,9 @@
                   </li>
                 </ul>
               </div>
+              <button id="friendlist-btn" class="d-none d-lg-block">
+                <i class="fa-solid fa-users"></i>
+              </button>
             </div>
           </div>
 
@@ -241,18 +244,21 @@
           <div class="container-fluid" id="main-container">
             <!-- NOME ARTISTA + ASCOLTATORI -->
             <div class="row px-3 align-items-end h-100">
+              <div id="spacer"></div>
               <div class="col">
                 <p class="m-0">
                   <i class="bi bi-patch-check-fill text-primary"></i>
                   Artista verificato
                 </p>
-                <h1 id="artist" class="display-custom fw-bold">PROVA</h1>
+                <h1 id="artist-title" class="display-1 fw-bold"></h1>
                 <p><span id="fans"></span> ascoltatori mensili</p>
               </div>
             </div>
           </div>
 
-          <div class="container-fluid bg-black bg-gradient flex-grow-1">
+          <div
+            class="container-fluid bg-black bg-gradient flex-grow-1 overflow-auto pb-7 pb-md-3"
+          >
             <div class="row pt-3 mb-4 px-3">
               <div class="col d-flex align-items-center">
                 <a
@@ -270,48 +276,47 @@
                 ></a>
               </div>
             </div>
-            <div class="row px-3 g-4">
-              <div class="col-7">
-                <h5 class="mb-4">Popolari</h5>
+            <div class="row gy-4 gx-3">
+              <div class="col-12 col-xxl-7 px-1 px-sm-3 fw-normal">
+                <h5 class="mb-4 fw-bold">Top 50</h5>
                 <div class="container-fluid">
                   <!-- CANZONI DELL'ARTISTA MESSE TRAMITE JS -->
-                  <div class="row align-items-center" id="songs">
-                    <!-- <div class="col-1">0</div>
-          <div class="col-1">
-            <img src="https://placekitten.com/30" alt="test" />
-          </div>
-          <div class="col-5">PROVA</div>
-          <div class="col-4">123123</div>
-          <div class="col-1">1.23</div> -->
-                  </div>
+                  <div
+                    class="row align-items-center gy-3 gx-2 gx-sm-3"
+                    id="songs"
+                  ></div>
                 </div>
               </div>
-              <div class="col-5">
-                <h5 class="mb-4">Brani che ti piacciono</h5>
+              <div class="col-12 col-xxl-5">
+                <h5 class="mb-4 fw-bold">Brani che ti piacciono</h5>
                 <div class="container-fluid">
                   <!-- LIKE A CANZONI DA PROGRAMMARE TRAMITE JS -->
-                  <!-- <div class="row" id="liked-songs">
-          <div class="col-12 d-flex align-items-center">
-            <div class="position-relative">
-              <img
-                src="https://placekitten.com/80"
-                alt="test"
-                class="rounded-circle me-3"
-              />
-              <div
-                class="position-absolute end-20 bottom-0 bg-success d-inline-block rounded-circle d-flex justify-content-center align-items-center custom-badge"
-              >
-                ♥
-              </div>
-            </div>
-            <div>
-              <h6>
-                Hai messo Mi piace a
-                <span id="like-number">00</span> brani
-              </h6>
-              <p class="m-0">di ARTISTA</p>
-            </div>
-          </div> -->
+                  <div class="row" id="liked-songs">
+                    <div class="col-12 d-flex align-items-center">
+                      <div class="position-relative">
+                        <img
+                          alt="test"
+                          class="rounded-circle me-3"
+                          height="80px"
+                          id="img-like"
+                        />
+                        <div
+                          class="position-absolute end-20 bottom-0 bg-success d-inline-block rounded-circle d-flex justify-content-center align-items-center custom-badge"
+                        >
+                          ♥
+                        </div>
+                      </div>
+                      <div>
+                        <h6 class="fw-bold m-0">
+                          Hai messo Mi piace a
+                          <span id="like-number">0</span> brani
+                        </h6>
+                        <p class="m-0 badge p-0 fw-normal text-secondary">
+                          Di <span id="artist-like"></span>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -319,7 +324,7 @@
 
           <!--/////////////////////DIVVONE CENTRALE/////////////////////////  -->
         </main>
-        <aside class="col-lg-2 d-none d-lg-block border-start">
+        <aside class="col-lg-2 d-none d-lg-block border-start" id="friendlist">
           <div
             class="d-flex justify-content-between align-items-center mt-3 mb-5 pt-2"
           >
@@ -367,5 +372,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="./BW2-Spotify-assets/assets/Js/date.js"></script>
+    <script src="./BW2-Spotify-assets/assets/Js/artist.js"></script>
   </body>
 </html>
