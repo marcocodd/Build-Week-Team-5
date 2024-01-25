@@ -159,7 +159,20 @@ const hoverButtonPlay = function () {
  }
 };
 
-// aggiunta pressione invio per ricerca
+// aggiunta pressione invio per ricerca e la ricerca automatica mentre arriva l'input
+let debounceTimer;
+
+inputSearch.addEventListener("input", function () {
+  clearTimeout(debounceTimer);
+
+  debounceTimer = setTimeout(function () {
+    if (inputSearch.value.trim() !== "") {
+      searchFunction()
+      
+      rowSearch.innerHTML = ""; ;
+    }
+  }, 500); //
+});
 
 inputSearch.addEventListener("keyup", function (event) {
  if (event.key === "Enter") {
