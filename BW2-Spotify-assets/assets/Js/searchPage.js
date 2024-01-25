@@ -167,8 +167,7 @@ inputSearch.addEventListener("input", function () {
 
   debounceTimer = setTimeout(function () {
     if (inputSearch.value.trim() !== "") {
-      searchFunction()
-      
+      searchFunction();
       rowSearch.innerHTML = ""; ;
     }
   }, 500); //
