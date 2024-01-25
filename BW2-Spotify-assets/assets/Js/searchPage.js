@@ -102,9 +102,9 @@ const removeAccents = function (str) {
 const searchFunction = function () {
  const searchWord = removeAccents(inputSearch.value);
  console.log(searchWord);
- if (searchWord === "") {
-  return;
- }
+ //  if (searchWord === "") {
+ //   alert("Inserisci qualcosa nella ricerca!");
+ //  }
  fetch(urlFetch + searchWord)
   .then((response) => {
    if (response.ok) {
@@ -142,7 +142,6 @@ const saveIdSessionStorage = function (id) {
  window.location.href = "./Album.html";
 };
 
-
 //funzione hover play buttons
 
 const hoverButtonPlay = function () {
@@ -164,7 +163,13 @@ const hoverButtonPlay = function () {
 
 inputSearch.addEventListener("keyup", function (event) {
  if (event.key === "Enter") {
-  rowSearch.innerHTML = "";
-  searchFunction();
+  if (inputSearch.value.trim() !== "") {
+   searchFunction();
+   inputSearch.value = "";
+   rowSearch.innerHTML = "";
+   inputSearch.blur();
+  } else {
+   alert("Inserisci qualcosa nella ricerca");
+  }
  }
 });
