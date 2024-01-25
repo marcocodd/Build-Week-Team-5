@@ -104,17 +104,19 @@ fetch(urlMainFetch + idMainAlbum)
     // Popolare dinamicamente la pagina ALBUM
     const albumContainer = document.getElementById("main-card");
     albumContainer.innerHTML = `
-    <div class="col-8 col-lg-3 py-4 text-center align-self-center mx-auto mx-lg-0">
+    <div class="col-8 col-lg-3 py-4 text-center mx-auto mx-lg-0">
     <a href="./Album.html?id=${albumData.id}">
       <img src="${albumData.cover_xl}" alt="${
       albumData.md5_image
     }" class="w-100">
     </a>
   </div>
-  <div class="col-lg-9 py-3 d-flex flex-column justify-content-center align-items-start">
+  <div class="col-lg-9 py-3 d-flex flex-column">
+  <div class="d-flex flex-column flex-grow-1 justify-content-center">
     <div>
       <p class="m-0 d-none d-md-block">ALBUM</p>
     </div>
+    <div>
     <h1 class="fw-bold">
       <a href="./Album.html?id=${
         albumData.id
@@ -122,22 +124,24 @@ fetch(urlMainFetch + idMainAlbum)
       albumData.title
     }</a>
     </h1>
-    <div>
+    </div>
+    </div>
+    <div class="d-flex">
       <img src="${
         albumData.artist.picture_small
-      }" alt="Foto Gruppo" class="rounded-circle" width="30" height="30">
-      <p class="badge text-white text-white">
-        <span>${getContributors()}</span> &middot;
-        <span>${albumData.release_date.slice(0, 4)}</span> &middot;
-        <span>${albumData.nb_tracks} brani,</span>
-        <span class="opacity-50 ms-2">${calcolaMinutiTotali(
+      }" alt="Foto Gruppo" class="rounded-circle me-2" width="30" height="30">
+      <div class="d-flex">
+        <p>${getContributors()} &middot;</p>
+        <p>${albumData.release_date.slice(0, 4)} &middot;</p>
+        <p>${albumData.nb_tracks} brani,</p>
+        <p class="opacity-50 ms-2">${calcolaMinutiTotali(
           albumData.tracks.data
-        )} min</span>
-      </p>
+        )} min</p>
     </div>
   </div>
-
-    `;
+  </div>
+  </div>
+  </div>`;
 
     const albumImage = document.getElementById("albumImage");
 
