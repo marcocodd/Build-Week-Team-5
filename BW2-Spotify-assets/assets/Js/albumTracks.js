@@ -1,6 +1,6 @@
 const urlAlbum = new URLSearchParams(window.location.search);
 
-const idAlbum = urlAlbum.get("id");
+let idAlbum = urlAlbum.get("id");
 
 const urlFetch = "https://striveschool-api.herokuapp.com/api/deezer/album/";
 
@@ -15,6 +15,10 @@ const secToMin = function (num) {
  return minutes + ":" + remainingSec;
 };
 
+if (sessionStorageKey) {
+ idAlbum = sessionStorageKey;
+}
+  
 fetch(urlFetch + idAlbum)
  .then((response) => {
   if (response.ok) {
