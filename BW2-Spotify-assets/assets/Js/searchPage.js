@@ -1,6 +1,3 @@
-// id="search-container">
-// id="row-search">
-
 // riferimento row
 
 const rowSearch = document.getElementById("row-search");
@@ -66,10 +63,77 @@ const creatSearchCards = function () {
   colImg.classList.add("col-6", "col-md-4", "col-lg-2");
 
   colImg.innerHTML = `
-    <img src=${arraySearchImg[i]} class="img-thumbnail" style= min-width:-webkit-fill-available alt="immagine search">
+    <img src=${arraySearchImg[i]} class="img-thumbnail pointer" style= min-width:-webkit-fill-available alt="immagine search">
 `;
   rowSearch.appendChild(colImg);
  }
 };
 
 creatSearchCards();
+
+// Dichiarazioni di variabili
+const inputSearch = document.getElementById("search-bar");
+const urlFetch = "https://striveschool-api.herokuapp.com/api/deezer/search?q=";
+// Funzione di ricerca
+const searchFunction = function () {
+ const searchWord = inputSearch.value.trim();
+ console.log(searchWord);
+ if (searchWord === "") {
+  return;
+ }
+ fetch(urlFetch + searchWord)
+  .then((response) => {
+   if (response.ok) {
+    return response.json();
+   } else {
+    throw new Error(response.status);
+   }
+  })
+  .then((result) => {
+   console.log(result);
+   for (let i = 0; i < result.data.length; i++) {
+    const Newcol = document.createElement("div");
+    Newcol.classList.add("col-6", "col-md-4", "col-lg-4", "col-xl-3");
+
+    Newcol.innerHTML = `<div class="card h-100">
+        <div class= "position-relative">
+        <img src= ${result.data[i].album.cover_xl} class="card-img-top" alt="image playlist">
+        <a href="#" class="btn btn-success rounded-5 d-flex justify-content-center align-items-center p-0 play-button position-absolute bottom-5 end-5 opacity-0"><i class="fas fa-play text-black fs-5"></i></a>
+        </div>
+        <div class="card-body">
+        <h6 class="card-title">${result.data[i].artist.name}</h6>
+        <p class="card-text">${result.data[i].title}</p>`;
+    rowSearch.appendChild(Newcol);
+   }
+   hoverButtonPlay();
+  })
+  .catch((error) => {
+   console.log(error);
+  });
+};
+
+//funzione hover play buttons
+
+const hoverButtonPlay = function () {
+ const cards = document.getElementsByClassName("card");
+ const buttonsPlay = document.getElementsByClassName("play-button");
+
+ for (let i = 0; i < cards.length; i++) {
+  cards[i].addEventListener("mouseover", function () {
+   buttonsPlay[i].classList.add("opacity-100", "fade");
+  });
+
+  cards[i].addEventListener("mouseout", function () {
+   buttonsPlay[i].classList.remove("opacity-100", "fade");
+  });
+ }
+};
+
+// aggiunta pressione invio per ricerca
+
+inputSearch.addEventListener("keyup", function (event) {
+ if (event.key === "Enter") {
+  rowSearch.innerHTML = "";
+  searchFunction();
+ }
+});
