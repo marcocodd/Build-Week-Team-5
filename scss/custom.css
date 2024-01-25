@@ -13833,4 +13833,16 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#go-back:hover {
+  cursor: pointer;
+}
+
+#go-forward:hover {
+  cursor: pointer;
+}
+
+.pointer {
+  cursor: pointer;
 }/*# sourceMappingURL=custom.css.map */
