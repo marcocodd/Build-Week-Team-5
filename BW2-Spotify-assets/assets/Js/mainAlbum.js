@@ -47,11 +47,15 @@ function applyBackgroundColor(albumContainer, averageColor) {
   albumContainer.style.backgroundColor = `rgb(${averageColor.red}, ${averageColor.green}, ${averageColor.blue})`;
 }
 
-// id e url per fetch
+// id e url per fetch e recupero id session storage se esistente
 const urlMainAlbum = new URLSearchParams(window.location.search);
-const idMainAlbum = urlMainAlbum.get("id");
+let idMainAlbum = urlMainAlbum.get("id");
 const urlMainFetch = "https://striveschool-api.herokuapp.com/api/deezer/album/";
+const sessionStorageKey = sessionStorage.getItem('albumid')
 
+if (sessionStorageKey){
+  idMainAlbum = sessionStorageKey
+}
 fetch(urlMainFetch + idMainAlbum)
   .then((response) => {
     if (response.ok) {

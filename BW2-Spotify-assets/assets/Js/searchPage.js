@@ -100,7 +100,7 @@ const removeAccents = function (str) {
 
 
 const searchFunction = function () {
- const searchWord = removeAccents(inputSearch.value)
+ const searchWord = removeAccents(inputSearch.value);
  console.log(searchWord);
  if (searchWord === "") {
   return;
@@ -121,7 +121,7 @@ const searchFunction = function () {
 
     Newcol.innerHTML = `<div class="card h-100">
         <div class= "position-relative">
-        <img src= ${result.data[i].album.cover_xl} class="card-img-top" alt="image playlist">
+        <img src= ${result.data[i].album.cover_xl} id =${result.data[i].album.id} onclick='saveIdSessionStorage(${result.data[i].album.id})' class="card-img-top" alt="image playlist">
         <a href="#" class="btn btn-success rounded-5 d-flex justify-content-center align-items-center p-0 play-button position-absolute bottom-5 end-5 opacity-0"><i class="fas fa-play text-black fs-5"></i></a>
         </div>
         <div class="card-body">
@@ -135,6 +135,13 @@ const searchFunction = function () {
    console.log(error);
   });
 };
+
+// salvo l' id delle card (album) nel session storage con il click
+const saveIdSessionStorage = function (id) {
+ sessionStorage.setItem("albumid", id);
+ window.location.href = "./Album.html";
+};
+
 
 //funzione hover play buttons
 
