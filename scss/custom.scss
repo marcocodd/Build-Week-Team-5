@@ -101,22 +101,6 @@ footer {
 
 /////////////// BARRA RIPRODUZIONE //////////////
 
-// .audio-player {
-//   display: flex;
-//   align-items: center;
-//   width: 50%;
-//   margin: auto;
-// }
-
-// .timer {
-//   width: 50px;
-//   text-align: center;
-// }
-
-// #play-pause {
-//   font-size: 2em;
-// }
-
 #progress-bar {
   height: 4px;
   width: 88%;
@@ -133,12 +117,9 @@ footer {
   animation: progress-animation linear infinite;
 }
 
-#volume-icons {
+#volume-button {
+  margin-right: 0.5rem;
   width: 10%;
-}
-
-#volume-icon {
-  cursor: pointer;
 }
 
 #volume-bar {
@@ -151,24 +132,22 @@ footer {
 
 #volume-bar-inner {
   height: 100%;
-  width: 100%; /* Percentuale di volume attuale, puoi regolare questa percentuale */
+  width: 0%; /* Percentuale di volume attuale, puoi regolare questa percentuale */
   background-color: white;
   border-radius: 3px;
-}
-
-@keyframes progress-animation {
-  to {
-    width: 100%;
-  }
 }
 
 #playerbar-play,
 #playerbar-next,
 #playerbar-back,
+#volume-button,
 #randomize,
 #repeat {
   background: none;
   border: none;
+  &:disabled {
+    opacity: 50%;
+  }
 }
 
 #playerbar-play {
