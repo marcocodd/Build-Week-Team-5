@@ -66,7 +66,7 @@ const creatSearchCards = function () {
   colImg.classList.add("col-6", "col-md-4", "col-lg-2");
 
   colImg.innerHTML = `
-    <img src=${arraySearchImg[i]} class="img-thumbnail" alt="immagine search">
+    <img src=${arraySearchImg[i]} class="img-thumbnail" style= min-width:-webkit-fill-available alt="immagine search">
 `;
   rowSearch.appendChild(colImg);
  }
