@@ -13663,61 +13663,102 @@ footer {
   height: 10vh;
 }
 
-.audio-player {
-  display: flex;
-  align-items: center;
-  width: 50%;
-  margin: auto;
-}
-
-.timer {
-  width: 50px;
-  text-align: center;
-}
-
-#play-pause {
-  font-size: 2em;
-}
-
-.progress-bar {
-  flex-grow: 2;
-  height: 8px;
+#progress-bar {
+  height: 4px;
+  width: 88%;
   background-color: #535353;
+  border-radius: 3px;
+  cursor: pointer;
 }
 
-.progress-bar-inner {
+#progress-bar-inner {
   height: 100%;
-  width: 50%; /* Cambiare questa percentuale per regolare la barra di progresso */
+  width: 0%; /* Cambiare questa percentuale per regolare la barra di progresso */
   background-color: white;
+  border-radius: 3px;
   animation: progress-animation linear infinite;
 }
 
-@keyframes progress-animation {
-  to {
-    width: 100%;
-  }
-}
-.volume-control {
-  display: flex;
-  align-items: center;
+#volume-button {
+  margin-right: 0.5rem;
+  width: 10%;
 }
 
-.fa-volume-low {
-  margin-right: 4px; /* Aggiungi spazio tra l'icona e la barra del volume */
-  font-size: 16px; /* Imposta la dimensione dell'icona */
-}
-
-.volume-bar {
+#volume-bar {
   height: 4px; /* Altezza della barra del volume */
-  width: 40px; /* Larghezza della barra del volume */
+  width: 60%; /* Larghezza della barra del volume */
   background-color: #535353;
-  position: relative;
+  border-radius: 3px;
+  cursor: pointer;
 }
 
-.volume-bar-inner {
+#volume-bar-inner {
   height: 100%;
-  width: 50%; /* Percentuale di volume attuale, puoi regolare questa percentuale */
+  width: 0%; /* Percentuale di volume attuale, puoi regolare questa percentuale */
   background-color: white;
+  border-radius: 3px;
+}
+
+#playerbar-play,
+#playerbar-next,
+#playerbar-back,
+#volume-button,
+#randomize,
+#repeat {
+  background: none;
+  border: none;
+}
+#playerbar-play:disabled,
+#playerbar-next:disabled,
+#playerbar-back:disabled,
+#volume-button:disabled,
+#randomize:disabled,
+#repeat:disabled {
+  opacity: 50%;
+}
+
+#playerbar-play {
+  color: black;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35px;
+  width: 35px;
+  font-size: 1.1rem;
+  margin: 0 1rem;
+}
+
+#playerbar-next,
+#playerbar-back,
+#randomize,
+#repeat {
+  font-size: 1.2rem;
+  opacity: 75%;
+}
+
+#randomize {
+  margin-right: 1rem;
+}
+
+#repeat {
+  margin-left: 1rem;
+}
+
+.active-dot {
+  font-size: 0.3rem;
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+}
+
+.minutes {
+  font-size: 0.75rem;
+  opacity: 75%;
+  width: 12%;
+  text-align: center;
 }
 
 .display-custom {

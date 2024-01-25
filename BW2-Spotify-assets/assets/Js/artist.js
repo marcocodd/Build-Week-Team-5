@@ -6,10 +6,12 @@ const songContainer = document.getElementById('songs')
 const main = document.getElementById('artist-main')
 const artistSpan = document.getElementById('artist-like')
 const artistImg = document.getElementById('img-like')
+const audioSrc = document.getElementsByTagName('source')[0]
 
 // Variabili
 
 const artistId = new URLSearchParams(location.search).get('id')
+let songs = []
 
 // Funzioni
 
@@ -55,6 +57,7 @@ const pageLoad = function () {
         seeMore.classList.add('d-none')
         songGen(data.data, data.data.length, 5)
       })
+      songs = [...data.data]
     })
     .catch((err) => {
       console.log(err)
@@ -132,10 +135,12 @@ const songGen = function (array, length, n = 0) {
     songNumber.innerHTML = `
       <span>${i + 1}</span>
       <a href="./Album.html?id=${array[i].album.id}">
-        <img src="${array[i].album.cover_xl}" alt="test" height="40px" />
+        <img src="${array[i].album.cover_xl}" alt="${
+      array[i].album.md5_image
+    }" height="40px" />
       </a>
     `
-    songTitle.innerHTML = `<a href="#" class="link-underline link-underline-opacity-0 text-white">${array[i].title}</a>`
+    songTitle.innerHTML = `<a href="#" onclick="loadSong('${array[i].preview}', ${i})" class="link-underline link-underline-opacity-0 text-white">${array[i].title}</a>`
     songRank.innerText = putDots(array[i].rank)
     songDuration.innerText = secToMin(array[i].duration)
     songContainer.appendChild(songNumber)
