@@ -54,16 +54,16 @@ fetch(urlMainFetch + idMainAlbum)
     // Popolare dinamicamente la pagina ALBUM
     const albumContainer = document.getElementById("main-card");
     albumContainer.innerHTML = `
-    <div class="col-3 py-4 text-center align-self-center">
+    <div class="col-8 col-lg-3 py-4 text-center align-self-center mx-auto mx-lg-0">
     <a href="./Album.html?id=${albumData.id}">
       <img src="${albumData.cover_xl}" alt="${
       albumData.md5_image
     }" class="w-100">
     </a>
   </div>
-  <div class="col-9 py-3 d-flex flex-column justify-content-center align-items-start">
+  <div class="col-lg-9 py-3 d-flex flex-column justify-content-center align-items-start">
     <div>
-      <p class="m-0 badge ">ALBUM</p>
+      <p class="m-0 d-none d-md-block">ALBUM</p>
     </div>
     <h1 class="fw-bold">
       <a href="./Album.html?id=${
@@ -72,11 +72,11 @@ fetch(urlMainFetch + idMainAlbum)
       albumData.title
     }</a>
     </h1>
-    <div class="text-end">
+    <div>
       <img src="${
         albumData.artist.picture_small
       }" alt="Foto Gruppo" class="rounded-circle" width="30" height="30">
-      <p class="badge bg-dark text-white text-white smaller-text badge-sm">
+      <p class="badge text-white text-white">
         <span>${getContributors()}</span> &middot;
         <span>${albumData.release_date.slice(0, 4)}</span> &middot;
         <span>${albumData.nb_tracks} brani,</span>
