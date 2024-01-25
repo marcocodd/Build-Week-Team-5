@@ -75,31 +75,8 @@ creatSearchCards();
 const inputSearch = document.getElementById("search-bar");
 const urlFetch = "https://striveschool-api.herokuapp.com/api/deezer/search?q=";
 // Funzione di ricerca
-
-// Rimozione accenti dalle parole
-const removeAccents = function (str) {
- let accents = str.split("");
- let accentsOut = [];
- let accentsLength = str.length;
- const accentedChars =
-  "ÀÁÂÃÄÅàáâãäåÒÓÔÕÕÖØòóôõöøÈÉÊËèéêëÇçðÐÌÍÎÏìíîïÙÚÛÜùúûüÑñŠšŸÿýŽž";
- const normalChars =
-  "AAAAAAaaaaaaOOOOOOOooooooEEEEeeeeCcdDIIIIiiiiUUUUuuuuNnSsYyyZz";
- for (let i = 0; i < accentsLength; i++) {
-  if (accentedChars.indexOf(accents[i]) !== -1) {
-   accentsOut[i] = normalChars.substr(accentedChars.indexOf(accents[i]), 1);
-  } else {
-   accentsOut[i] = accents[i];
-  }
- }
- accentsOut = accentsOut.join("");
- return accentsOut;
-};
-
-// funzione ricerca
-
 const searchFunction = function () {
- const searchWord = removeAccents(inputSearch.value);
+ const searchWord = inputSearch.value.trim();
  console.log(searchWord);
  if (searchWord === "") {
   return;
