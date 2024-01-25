@@ -456,57 +456,99 @@
         </p>
       </div>
     </div>
-    <footer class="d-none d-md-flex align-items-center justify-content-center">
-      <!-- ////////////// BARRA RIPRODUZIONE ////////////// -->
 
-      <div class="container-fluid d-none d-md-block">
-        <div class="row justify-content-center flex-grow-1">
-          <div class="col-lg-9 px-0 text-center">
-            <i class="fa-solid fa-shuffle" style="color: #1db954"></i>
-            <i
-              class="fas fa-step-backward opacity-75 mx-3"
-              onclick="rewind()"
-            ></i>
-            <span id="play-pause" onclick="togglePlayPause()">
-              <i class="fas fa-play-circle"></i>
-            </span>
-            <i
-              class="fas fa-step-forward opacity-75 mx-3"
-              onclick="fastForward()"
-            ></i>
-            <i class="fa-solid fa-retweet" style="color: #1db954"></i>
-            <div class="audio-player">
-              <div class="timer opacity-75" id="current-time">0:00</div>
-              <div class="progress-bar">
+    <footer
+      class="d-none d-md-flex align-items-center justify-content-center bg-secondary-subtle border-top border-dark"
+    >
+      <div class="container-fluid h-100 px-3">
+        <div class="row h-100 py-1 align-items-center">
+          <!-- Album + canzone -->
+          <div
+            class="col-3 h-75 d-flex align-items-center justify-content-between"
+          >
+            <div class="h-100 w-100 d-none align-items-center" id="song-data">
+              <div class="h-100 d-flex w-100">
+                <a href="#">
+                  <img
+                    src="https://e-cdns-images.dzcdn.net/images/cover/8f7ff24dbbb77f281bf7f7ae0be72c0c/1000x1000-000000-80-0-0.jpg"
+                    alt="test"
+                    class="h-100"
+                /></a>
                 <div
-                  class="progress-bar-inner"
-                  id="progress-bar-inner"
-                  onclick="togglePlayPause()"
-                ></div>
-              </div>
-              <div class="timer opacity-75" id="timer">3:42</div>
-            </div>
-          </div>
-          <div class="col-lg-3 text-center mt-2">
-            <div class="d-flex justify-content-end">
-              <i class="fa-solid fa-microphone px-2"></i>
-              <i class="fa-solid fa-bars px-2"></i>
-              <i class="fa-brands fa-speaker-deck opacity-75"></i>
-              <div class="volume-control d-flex align-items-center px-2">
-                <i class="fa-solid fa-volume-low"></i>
-                <div class="volume-bar ml-2">
-                  <div class="volume-bar-inner"></div>
+                  class="d-flex flex-column align-items-start justify-content-center ms-2"
+                >
+                  <p class="m-0 mb-1 d-inline">
+                    Another Brick In The Wall, Pt. 2 (2011 Remastered Version)
+                  </p>
+                  <p class="m-0 p-0 fw-normal badge opacity-75 d-inline">
+                    <a
+                      href="#"
+                      class="text-white link-underline link-underline-opacity-0"
+                      >Pink Floyd</a
+                    >
+                  </p>
                 </div>
               </div>
-              <i
-                class="fa-solid fa-up-right-and-down-left-from-center px-2"
-              ></i>
+              <a href="#" class="text-white">
+                <i class="bi bi-suit-heart"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Player -->
+          <div
+            class="col-6 h-75 d-flex flex-column justify-content-between align-items-center"
+          >
+            <div class="d-flex mb-2">
+              <button id="randomize" class="position-relative" disabled>
+                <i class="fa-solid fa-shuffle"></i>
+                <i class="fa-solid fa-circle active-dot d-none"></i>
+              </button>
+              <button id="playerbar-back" disabled>
+                <i class="fa-solid fa-backward-step"></i>
+              </button>
+              <button id="playerbar-play" disabled>
+                <i id="playerbar-playicon" class="fa-solid fa-play"></i>
+              </button>
+              <button id="playerbar-next" disabled>
+                <i class="fa-solid fa-forward-step"></i>
+              </button>
+              <button id="repeat" class="position-relative" disabled>
+                <i class="fa-solid fa-retweet"></i>
+                <i class="fa-solid fa-circle active-dot d-none"></i>
+              </button>
+            </div>
+            <div class="w-75 d-flex align-items-center justify-content-between">
+              <span class="minutes" id="current-time">0:00</span>
+              <div id="progress-bar">
+                <div id="progress-bar-inner"></div>
+              </div>
+              <span class="minutes" id="total-time">--:--</span>
+            </div>
+          </div>
+
+          <!-- Volume -->
+          <div class="col-3 h-100">
+            <div
+              class="d-flex flex-column justify-content-around align-items-center h-100 w-100"
+            >
+              <audio class="d-none" controls>
+                <source src="" type="audio/mpeg" />
+              </audio>
+              <div
+                class="d-flex align-items-center justify-content-center w-100"
+              >
+                <button id="volume-button" disabled>
+                  <i id="volume-icon" class="fa-solid fa-volume-high"></i>
+                </button>
+                <div id="volume-bar">
+                  <div id="volume-bar-inner"></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-
-      <!-- ////////////// BARRA RIPRODUZIONE ////////////// -->
     </footer>
 
     <nav class="fixed-bottom container-fluid d-md-none bg-black opacity-75">
@@ -536,10 +578,10 @@
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
-    <script src="./BW2-Spotify-assets/assets/Js/playBarra.js"></script>
     <script src="./BW2-Spotify-assets/assets/Js/date.js"></script>
+    <script src="./BW2-Spotify-assets/assets/Js/index.js"></script>
     <script src="./BW2-Spotify-assets/assets/Js/greetings.js"></script>
     <script src="./BW2-Spotify-assets/assets/Js/playlisthome.js"></script>
-    <script src="./BW2-Spotify-assets/assets/Js/index.js"></script>
+    <script src="./BW2-Spotify-assets/assets/Js/playerbar.js"></script>
   </body>
 </html>

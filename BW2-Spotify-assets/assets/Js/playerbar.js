@@ -1,6 +1,7 @@
 // Riferimenti DOM
 
 const audio = document.getElementsByTagName('audio')[0]
+const audioSrc = document.getElementsByTagName('source')[0]
 const songData = document.getElementById('song-data')
 
 const playBtn = document.getElementById('playerbar-play')
@@ -46,7 +47,6 @@ const timerInMinutes = function (num) {
 
 const loadSong = function (mp3, i) {
   playBtn.disabled = false
-  mainPlayBtn.disabled = false
   randomizeBtn.disabled = false
   repeatBtn.disabled = false
   playerbarBack.disabled = false
@@ -63,14 +63,18 @@ const loadSong = function (mp3, i) {
   if (!isPlaying) {
     playIcon.classList.add('fa-play')
     playIcon.classList.remove('fa-pause')
-    mainPlayIcon.classList.add('fa-play')
-    mainPlayIcon.classList.remove('fa-pause')
+    if (mainPlayIcon) {
+      mainPlayIcon.classList.add('fa-play')
+      mainPlayIcon.classList.remove('fa-pause')
+    }
     audio.pause()
   } else {
     playIcon.classList.add('fa-pause')
     playIcon.classList.remove('fa-play')
-    mainPlayIcon.classList.add('fa-pause')
-    mainPlayIcon.classList.remove('fa-play')
+    if (mainPlayIcon) {
+      mainPlayIcon.classList.add('fa-pause')
+      mainPlayIcon.classList.remove('fa-play')
+    }
     audio.play()
   }
   progressBar.style.width = '0%'
@@ -91,8 +95,8 @@ const loadSong = function (mp3, i) {
         </p>
         <p class="m-0 p-0 fw-normal badge opacity-75 d-inline">
           <a
-            href=".Artist.html?id=${songs[i].artist.id}"
-            class="text-white link-underline link-underline-opacity-0"
+            href="./Artist.html?id=${songs[i].artist.id}"
+            class="text-capitalize text-white link-underline link-underline-opacity-0"
             >${songs[i].artist.name}</a
           >
         </p>
@@ -145,27 +149,33 @@ playBtn.addEventListener('click', function () {
   }
   playIcon.classList.toggle('fa-play')
   playIcon.classList.toggle('fa-pause')
-  mainPlayIcon.classList.toggle('fa-play')
-  mainPlayIcon.classList.toggle('fa-pause')
+  if (mainPlayIcon) {
+    mainPlayIcon.classList.toggle('fa-play')
+    mainPlayIcon.classList.toggle('fa-pause')
+  }
 })
 
-mainPlayBtn.addEventListener('click', function () {
-  if (playBtn.disabled) {
-    loadSong(songs[index].preview, index)
-    isPlaying = true
-    audio.play()
-  } else if (!isPlaying) {
-    audio.play()
-    isPlaying = true
-  } else {
-    audio.pause()
-    isPlaying = false
-  }
-  playIcon.classList.toggle('fa-play')
-  playIcon.classList.toggle('fa-pause')
-  mainPlayIcon.classList.toggle('fa-play')
-  mainPlayIcon.classList.toggle('fa-pause')
-})
+if (mainPlayBtn) {
+  mainPlayBtn.addEventListener('click', function () {
+    if (playBtn.disabled) {
+      loadSong(songs[index].preview, index)
+      isPlaying = true
+      audio.play()
+    } else if (!isPlaying) {
+      audio.play()
+      isPlaying = true
+    } else {
+      audio.pause()
+      isPlaying = false
+    }
+    playIcon.classList.toggle('fa-play')
+    playIcon.classList.toggle('fa-pause')
+    if (mainPlayIcon) {
+      mainPlayIcon.classList.toggle('fa-play')
+      mainPlayIcon.classList.toggle('fa-pause')
+    }
+  })
+}
 
 progressBarContainer.addEventListener('click', function (e) {
   if (!playBtn.disabled) {
