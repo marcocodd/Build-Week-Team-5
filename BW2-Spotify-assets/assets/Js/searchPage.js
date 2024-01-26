@@ -131,7 +131,7 @@ const searchFunction = function () {
             <h6 class="card-title"><a href="./Artist.html?id=${result.data[i].artist.id}" class="link-underline link-underline-opacity-0 text-white">${result.data[i].artist.name}</a></h6>
             <p class="card-text">${result.data[i].title}</p>`;
       rowSearch.appendChild(Newcol);
-     }, 100 * i);
+     }, 90 * i);
     })(i);
    }
    hoverButtonPlay();
