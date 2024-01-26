@@ -13633,7 +13633,7 @@ body {
 
 #main {
   box-sizing: border-box;
-  height: 90vh;
+  height: 89vh;
 }
 @media screen and (max-width: 767px) {
   #main {
@@ -13660,7 +13660,7 @@ body {
 }
 footer {
   box-sizing: border-box;
-  height: 10vh;
+  height: 11vh;
 }
 
 #progress-bar {
