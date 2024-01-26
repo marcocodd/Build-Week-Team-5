@@ -141,7 +141,7 @@ const searchFunction = function () {
 // salvo l' id delle card (album) nel session storage con il click
 const saveIdSessionStorage = function (id) {
   sessionStorage.setItem('albumid', id)
-  window.location.href = './Album.html'
+  window.location.href = "./Album.html?id=" + id;
 }
 
 //funzione hover play buttons
