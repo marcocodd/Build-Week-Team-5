@@ -17,9 +17,7 @@ const secToMin = function (num) {
   return minutes + ':' + remainingSec
 }
 
-if (sessionStorageKey) {
-  idAlbum = sessionStorageKey
-}
+
 
 fetch(urlFetch + idAlbum)
   .then((response) => {
