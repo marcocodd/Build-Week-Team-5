@@ -9,10 +9,20 @@ const playIcon = document.getElementById('playerbar-playicon')
 const mainPlayBtn = document.getElementById('main-play-button')
 const mainPlayIcon = document.getElementById('main-playicon')
 
+const mobileTitle = document.getElementById('mobile-title')
+const mobilePlay = document.getElementById('mobile-play')
+const mobilePlayIcon = document.getElementById('mobile-playicon')
+const mobileNext = document.getElementById('mobile-next')
+const mobileBack = document.getElementById('mobile-back')
+const mobileRandomize = document.getElementById('mobile-randomize')
+const mobileRepeat = document.getElementById('mobile-repeat')
+const mobileRandomizeDot = document.getElementsByClassName('active-dot')[0]
+const mobileRepeatDot = document.getElementsByClassName('active-dot')[1]
+
 const randomizeBtn = document.getElementById('randomize')
-const randomizeDot = document.getElementsByClassName('active-dot')[0]
+const randomizeDot = document.getElementsByClassName('active-dot')[2]
 const repeatBtn = document.getElementById('repeat')
-const repeatDot = document.getElementsByClassName('active-dot')[1]
+const repeatDot = document.getElementsByClassName('active-dot')[3]
 
 const playerbarBack = document.getElementById('playerbar-back')
 const playerbarNext = document.getElementById('playerbar-next')
@@ -52,6 +62,11 @@ const loadSong = function (mp3, i) {
   playerbarBack.disabled = false
   playerbarNext.disabled = false
   volumeBtn.disabled = false
+  mobilePlay.disabled = false
+  mobileNext.disabled = false
+  mobileBack.disabled = false
+  mobileRandomize.disabled = false
+  mobileRepeat.disabled = false
   if (audio.muted) {
     volumeBar.style.width = `0%`
   } else {
@@ -63,6 +78,8 @@ const loadSong = function (mp3, i) {
   if (!isPlaying) {
     playIcon.classList.add('fa-play')
     playIcon.classList.remove('fa-pause')
+    mobilePlayIcon.classList.add('fa-play')
+    mobilePlayIcon.classList.remove('fa-pause')
     if (mainPlayIcon) {
       mainPlayIcon.classList.add('fa-play')
       mainPlayIcon.classList.remove('fa-pause')
@@ -71,6 +88,8 @@ const loadSong = function (mp3, i) {
   } else {
     playIcon.classList.add('fa-pause')
     playIcon.classList.remove('fa-play')
+    mobilePlayIcon.classList.add('fa-pause')
+    mobilePlayIcon.classList.remove('fa-play')
     if (mainPlayIcon) {
       mainPlayIcon.classList.add('fa-pause')
       mainPlayIcon.classList.remove('fa-play')
@@ -79,6 +98,7 @@ const loadSong = function (mp3, i) {
   }
   progressBar.style.width = '0%'
   console.log(songs[i])
+  mobileTitle.innerText = songs[i].title
   songData.innerHTML = `
     <div class="h-100 d-flex w-100">
       <a href="./Album.html?id=${songs[i].album.id}">
@@ -120,7 +140,10 @@ audio.addEventListener('timeupdate', function () {
   progressBar.style.width = `${played}%`
   if (audio.ended) {
     progressBar.style.width = '0%'
-    if (randomizeBtn.classList.contains('text-success')) {
+    if (
+      randomizeBtn.classList.contains('text-success') ||
+      mobileRandomize.classList.contains('text-success')
+    ) {
       index = Math.floor(Math.random() * songs.length)
       loadSong(songs[index].preview, index)
     } else if (index === songs.length - 1) {
@@ -149,6 +172,26 @@ playBtn.addEventListener('click', function () {
   }
   playIcon.classList.toggle('fa-play')
   playIcon.classList.toggle('fa-pause')
+  mobilePlayIcon.classList.toggle('fa-play')
+  mobilePlayIcon.classList.toggle('fa-pause')
+  if (mainPlayIcon) {
+    mainPlayIcon.classList.toggle('fa-play')
+    mainPlayIcon.classList.toggle('fa-pause')
+  }
+})
+
+mobilePlay.addEventListener('click', function () {
+  if (!isPlaying) {
+    audio.play()
+    isPlaying = true
+  } else {
+    audio.pause()
+    isPlaying = false
+  }
+  playIcon.classList.toggle('fa-play')
+  playIcon.classList.toggle('fa-pause')
+  mobilePlayIcon.classList.toggle('fa-play')
+  mobilePlayIcon.classList.toggle('fa-pause')
   if (mainPlayIcon) {
     mainPlayIcon.classList.toggle('fa-play')
     mainPlayIcon.classList.toggle('fa-pause')
@@ -170,6 +213,8 @@ if (mainPlayBtn) {
     }
     playIcon.classList.toggle('fa-play')
     playIcon.classList.toggle('fa-pause')
+    mobilePlayIcon.classList.toggle('fa-play')
+    mobilePlayIcon.classList.toggle('fa-pause')
     if (mainPlayIcon) {
       mainPlayIcon.classList.toggle('fa-play')
       mainPlayIcon.classList.toggle('fa-pause')
@@ -260,6 +305,23 @@ repeatBtn.addEventListener('click', function () {
   repeatBtn.classList.toggle('text-success')
   repeatBtn.classList.toggle('opacity-100')
   repeatDot.classList.toggle('d-none')
+  mobileRepeat.classList.toggle('text-success')
+  mobileRepeat.classList.toggle('opacity-100')
+  mobileRepeatDot.classList.toggle('d-none')
+  if (!audio.loop) {
+    audio.loop = true
+  } else {
+    audio.loop = false
+  }
+})
+
+mobileRepeat.addEventListener('click', function () {
+  repeatBtn.classList.toggle('text-success')
+  repeatBtn.classList.toggle('opacity-100')
+  repeatDot.classList.toggle('d-none')
+  mobileRepeat.classList.toggle('text-success')
+  mobileRepeat.classList.toggle('opacity-100')
+  mobileRepeatDot.classList.toggle('d-none')
   if (!audio.loop) {
     audio.loop = true
   } else {
@@ -271,10 +333,25 @@ randomizeBtn.addEventListener('click', function () {
   randomizeBtn.classList.toggle('text-success')
   randomizeBtn.classList.toggle('opacity-100')
   randomizeDot.classList.toggle('d-none')
+  mobileRandomize.classList.toggle('text-success')
+  mobileRandomize.classList.toggle('opacity-100')
+  mobileRandomizeDot.classList.toggle('d-none')
+})
+
+mobileRandomize.addEventListener('click', function () {
+  randomizeBtn.classList.toggle('text-success')
+  randomizeBtn.classList.toggle('opacity-100')
+  randomizeDot.classList.toggle('d-none')
+  mobileRandomize.classList.toggle('text-success')
+  mobileRandomize.classList.toggle('opacity-100')
+  mobileRandomizeDot.classList.toggle('d-none')
 })
 
 playerbarNext.addEventListener('click', function () {
-  if (randomizeBtn.classList.contains('text-success')) {
+  if (
+    randomizeBtn.classList.contains('text-success') ||
+    mobileRandomize.classList.contains('text-success')
+  ) {
     index = Math.floor(Math.random() * songs.length)
     loadSong(songs[index].preview, index)
   } else if (index === songs.length - 1) {
@@ -287,6 +364,31 @@ playerbarNext.addEventListener('click', function () {
 })
 
 playerbarBack.addEventListener('click', function () {
+  if (index === 0) {
+    loadSong(songs[index].preview, index)
+  } else {
+    index--
+    loadSong(songs[index].preview, index)
+  }
+})
+
+mobileNext.addEventListener('click', function () {
+  if (
+    randomizeBtn.classList.contains('text-success') ||
+    mobileRandomize.classList.contains('text-success')
+  ) {
+    index = Math.floor(Math.random() * songs.length)
+    loadSong(songs[index].preview, index)
+  } else if (index === songs.length - 1) {
+    index = 0
+    loadSong(songs[index].preview, index)
+  } else {
+    index++
+    loadSong(songs[index].preview, index)
+  }
+})
+
+mobileBack.addEventListener('click', function () {
   if (index === 0) {
     loadSong(songs[index].preview, index)
   } else {

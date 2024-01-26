@@ -13683,6 +13683,11 @@ footer {
   margin-right: 0.5rem;
   width: 10%;
 }
+@media screen and (max-width: 991px) {
+  #volume-button {
+    margin-right: 1.2rem;
+  }
+}
 
 #volume-bar {
   height: 4px; /* Altezza della barra del volume */
@@ -13704,7 +13709,13 @@ footer {
 #playerbar-back,
 #volume-button,
 #randomize,
-#repeat {
+#repeat,
+#mobile-play,
+#mobile-playicon,
+#mobile-next,
+#mobile-back,
+#mobile-randomize,
+#mobile-repeat {
   background: none;
   border: none;
 }
@@ -13713,8 +13724,23 @@ footer {
 #playerbar-back:disabled,
 #volume-button:disabled,
 #randomize:disabled,
-#repeat:disabled {
+#repeat:disabled,
+#mobile-play:disabled,
+#mobile-playicon:disabled,
+#mobile-next:disabled,
+#mobile-back:disabled,
+#mobile-randomize:disabled,
+#mobile-repeat:disabled {
   opacity: 50%;
+}
+
+#mobile-playerbar {
+  width: 95%;
+}
+
+#mobile-play {
+  font-size: 2rem;
+  margin: 0 1rem;
 }
 
 #playerbar-play {
@@ -13738,11 +13764,13 @@ footer {
   opacity: 75%;
 }
 
-#randomize {
+#randomize,
+#mobile-randomize {
   margin-right: 1rem;
 }
 
-#repeat {
+#repeat,
+#mobile-repeat {
   margin-left: 1rem;
 }
 

@@ -1,10 +1,10 @@
-@import "./bootstrap/functions";
-@import "./bootstrap/variables";
+@import './bootstrap/functions';
+@import './bootstrap/variables';
 
 // NUOVE VARIABILI
 
 $new-colors: (
-  "success": #1db954,
+  'success': #1db954,
 );
 
 $theme-colors: map-merge($theme-colors, $new-colors);
@@ -50,12 +50,12 @@ $more-spacers: (
 
 $spacers: map-merge($spacers, $more-spacers);
 
-@import "./bootstrap/bootstrap.scss";
+@import './bootstrap/bootstrap.scss';
 
 // ALTRE REGOLE
 
 body {
-  font-family: "Circular";
+  font-family: 'Circular';
   max-height: 100vh;
 }
 
@@ -120,6 +120,9 @@ footer {
 #volume-button {
   margin-right: 0.5rem;
   width: 10%;
+  @media screen and (max-width: 991px) {
+    margin-right: 1.2rem;
+  }
 }
 
 #volume-bar {
@@ -142,12 +145,27 @@ footer {
 #playerbar-back,
 #volume-button,
 #randomize,
-#repeat {
+#repeat,
+#mobile-play,
+#mobile-playicon,
+#mobile-next,
+#mobile-back,
+#mobile-randomize,
+#mobile-repeat {
   background: none;
   border: none;
   &:disabled {
     opacity: 50%;
   }
+}
+
+#mobile-playerbar {
+  width: 95%;
+}
+
+#mobile-play {
+  font-size: 2rem;
+  margin: 0 1rem;
 }
 
 #playerbar-play {
@@ -171,11 +189,13 @@ footer {
   opacity: 75%;
 }
 
-#randomize {
+#randomize,
+#mobile-randomize {
   margin-right: 1rem;
 }
 
-#repeat {
+#repeat,
+#mobile-repeat {
   margin-left: 1rem;
 }
 
@@ -278,7 +298,7 @@ footer {
   cursor: pointer;
 }
 
-#userbar{
+#userbar {
   background-color: black;
   opacity: 90%;
 }
