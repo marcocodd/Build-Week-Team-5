@@ -131,10 +131,14 @@ const searchFunction = function () {
             <h6 class="card-title"><a href="./Artist.html?id=${result.data[i].artist.id}" class="link-underline link-underline-opacity-0 text-white">${result.data[i].artist.name}</a></h6>
             <p class="card-text">${result.data[i].title}</p>`;
       rowSearch.appendChild(Newcol);
-     }, 90 * i);
+      if (i === result.data.length - 1) {
+       // Chiamata di hoverButtonPlay solo dopo la creazione dell'ultima card
+       hoverButtonPlay();
+      }
+     }, 40 * i);
     })(i);
    }
-   hoverButtonPlay();
+
    songs = [...result.data];
    console.log("songs", songs);
   })
