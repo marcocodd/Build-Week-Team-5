@@ -327,17 +327,3 @@ footer {
 #search-bar {
   height: 70%;
 }
-
-
-/* Stile di default per i button play */
-.play-button {
-  opacity: 1 !important; /* Imposta l'opacità a 1 di default */
-}
-
-/* Media query per schermi con larghezza massima di 767px (dimensione tipica di dispositivi mobili) */
-@media (max-width: 767px) {
-  /* Stile specifico per dispositivi mobili */
-  .play-button {
-    opacity: 0; /* Imposta l'opacità a 0 solo per dispositivi mobili */
-  }
-}
