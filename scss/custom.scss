@@ -70,7 +70,7 @@ body {
 
 #main {
   box-sizing: border-box;
-  height: 90vh;
+  height: 89vh;
   @media screen and (max-width: 767px) {
     height: 100vh;
   }
@@ -96,7 +96,7 @@ body {
 
 footer {
   box-sizing: border-box;
-  height: 10vh;
+  height: 11vh;
 }
 
 /////////////// BARRA RIPRODUZIONE //////////////
@@ -120,6 +120,9 @@ footer {
 #volume-button {
   margin-right: 0.5rem;
   width: 10%;
+  @media screen and (max-width: 991px) {
+    margin-right: 1.2rem;
+  }
 }
 
 #volume-bar {
@@ -142,12 +145,27 @@ footer {
 #playerbar-back,
 #volume-button,
 #randomize,
-#repeat {
+#repeat,
+#mobile-play,
+#mobile-playicon,
+#mobile-next,
+#mobile-back,
+#mobile-randomize,
+#mobile-repeat {
   background: none;
   border: none;
   &:disabled {
     opacity: 50%;
   }
+}
+
+#mobile-playerbar {
+  width: 95%;
+}
+
+#mobile-play {
+  font-size: 2rem;
+  margin: 0 1rem;
 }
 
 #playerbar-play {
@@ -171,11 +189,13 @@ footer {
   opacity: 75%;
 }
 
-#randomize {
+#randomize,
+#mobile-randomize {
   margin-right: 1rem;
 }
 
-#repeat {
+#repeat,
+#mobile-repeat {
   margin-left: 1rem;
 }
 
@@ -276,4 +296,15 @@ footer {
 
 .pointer {
   cursor: pointer;
+}
+
+#userbar {
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 0 0.5rem;
+  border-radius: 3px;
+}
+
+.form-control:focus {
+  border-color: white;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgb(172, 172, 172);
 }

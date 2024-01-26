@@ -12,14 +12,12 @@ const secToMin = function (num) {
   const minutes = Math.floor(num / 60)
   let remainingSec = num % 60
   if (remainingSec < 10) {
-    remainingSec += '0'
+    remainingSec = '0' + remainingSec
   }
   return minutes + ':' + remainingSec
 }
 
-if (sessionStorageKey) {
-  idAlbum = sessionStorageKey
-}
+
 
 fetch(urlFetch + idAlbum)
   .then((response) => {
