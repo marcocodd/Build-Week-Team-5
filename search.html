@@ -162,7 +162,7 @@
             id="userbar"
             class="d-flex justify-content-between mt-3 sticky-top"
           >
-            <div class="d-flex">
+            <div class="d-flex align-items-center">
               <div id="go-back" class="fs-3 text-black me-2">
                 <i
                   class="fas fa-chevron-circle-left rounded-5 bg-secondary border border-black"
@@ -248,7 +248,7 @@
 
           <!--/////////////////////DIVVONE CENTRALE/////////////////////////  -->
 
-          <div class="container-fluid mb-8 mb-md-5">
+          <div class="container-fluid mb-md-5" id="content-container">
             <h3 class="my-2">Sfoglia tutto</h3>
             <div class="row g-3" id="row-search"></div>
           </div>
@@ -349,7 +349,7 @@
     <!-- MOBILE PLAYER -->
 
     <div
-      class="text-center d-md-none fixed-bottom bottom-5 start-50 translate-middle-x"
+      class="text-center d-md-none fixed-bottom bottom-10 start-50 translate-middle-x z-3"
       id="mobile-playerbar"
     >
       <div
@@ -472,8 +472,11 @@
       </div>
     </footer>
 
-    <nav class="fixed-bottom container-fluid d-md-none bg-black opacity-75">
-      <div class="row justify-content-center">
+    <nav
+      class="fixed-bottom container-fluid d-md-none z-2 pb-3"
+      id="mobile-nav"
+    >
+      <div class="row justify-content-center align-items-end h-100">
         <a
           href="./Index.html"
           class="nav-link col-3 d-flex flex-column justify-content-center align-items-center"

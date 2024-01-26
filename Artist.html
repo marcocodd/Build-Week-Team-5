@@ -256,6 +256,7 @@
 
           <div
             class="container-fluid bg-black bg-gradient flex-grow-1 overflow-auto pb-7 pb-md-3"
+            id="content-container"
           >
             <div class="row pt-3 mb-4 px-3">
               <div class="col d-flex align-items-center">
@@ -452,7 +453,7 @@
     <!-- MOBILE PLAYER -->
 
     <div
-      class="text-center d-md-none fixed-bottom bottom-5 start-50 translate-middle-x"
+      class="text-center d-md-none fixed-bottom bottom-10 start-50 translate-middle-x z-3"
       id="mobile-playerbar"
     >
       <div
@@ -575,16 +576,19 @@
       </div>
     </footer>
 
-    <nav class="fixed-bottom container-fluid d-md-none">
-      <div class="row justify-content-center">
+    <nav
+      class="fixed-bottom container-fluid d-md-none z-2 pb-3"
+      id="mobile-nav"
+    >
+      <div class="row justify-content-center align-items-end h-100">
         <a
-          href="#"
+          href="./Index.html"
           class="nav-link col-3 d-flex flex-column justify-content-center align-items-center"
           ><i class="bi bi-house-door fs-4"></i
           ><span class="nav-text">Home</span></a
         >
         <a
-          href="#"
+          href="./search.html"
           class="nav-link col-3 d-flex flex-column justify-content-center align-items-center"
           ><i class="bi bi-search fs-4"></i
           ><span class="nav-text">Cerca</span></a

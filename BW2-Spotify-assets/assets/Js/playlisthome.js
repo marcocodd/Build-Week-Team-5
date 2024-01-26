@@ -23,12 +23,15 @@ const arrayImg = [
 ]
 
 const arrayTitlePlaylist = [
-  'Top 50',
-  'Indie',
-  'This is Artist',
-  'Ascoltato di recente',
-  'Best of 2023',
-]
+ "Top 50",
+ "Indie",
+ "This is Artist",
+ "Ascoltato di recente",
+ "Best of 2023",
+ "Estate",
+ "Sotto la doccia",
+ "Caffè????",
+];
 
 // const hoverIn = function (event) {
 //  const buttonPlay = event.querySelector("play-button");
@@ -47,24 +50,24 @@ const arrayTitlePlaylist = [
 // };
 
 const createPlaylistImg = function () {
-  for (let i = 0; i < 5; i++) {
-    const Newcol = document.createElement('div')
-    Newcol.classList.add('col-6', 'col-md-4', 'col-lg-3')
-    randomIndex = Math.floor(Math.random() * arrayImg.length)
+ for (let i = 0; i < arrayTitlePlaylist.length; i++) {
+  const Newcol = document.createElement("div");
+  Newcol.classList.add("col-6", "col-md-4", "col-lg-3");
+  // randomIndex = Math.floor(Math.random() * arrayImg.length);
 
-    Newcol.innerHTML = `<div class="card h-100">
+  Newcol.innerHTML = `<div class="card h-100">
         <div class= "position-relative">
-        <img src= ${arrayImg[randomIndex]} class="card-img-top" alt="image playlist">
+        <img src= ${arrayImg[i]} class="card-img-top" alt="image playlist">
         <a href="#" class="btn btn-success rounded-5 d-flex justify-content-center align-items-center p-0 play-button position-absolute bottom-5 end-5 opacity-0"><i class="fas fa-play text-black fs-5"></i></a>
         </div>
         <div class="card-body">
         <h6 class="card-title">${arrayTitlePlaylist[i]}</h6>
-        <p class="card-text">playlist</p>`
-    arrayImg.splice(randomIndex, 1)
+        <p class="card-text">playlist</p>`;
+  // arrayImg.splice(randomIndex, 1);
 
-    rowPlaylist.appendChild(Newcol)
-  }
-}
+  rowPlaylist.appendChild(Newcol);
+ }
+};
 
 createPlaylistImg()
 

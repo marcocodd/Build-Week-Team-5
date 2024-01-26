@@ -100,42 +100,51 @@ const removeAccents = function (str) {
 // Funzione di ricerca
 
 const searchFunction = function () {
-  const searchWord = removeAccents(inputSearch.value)
-  console.log(searchWord)
-  //  if (searchWord === "") {
-  //   alert("Inserisci qualcosa nella ricerca!");
-  //  }
-  fetch(urlFetch + searchWord)
-    .then((response) => {
-      if (response.ok) {
-        return response.json()
-      } else {
-        throw new Error(response.status)
-      }
-    })
-    .then((result) => {
-      console.log(result)
-      for (let i = 0; i < result.data.length; i++) {
-        const Newcol = document.createElement('div')
-        Newcol.classList.add('col-6', 'col-md-4', 'col-lg-4', 'col-xl-3')
+ const searchWord = removeAccents(inputSearch.value);
+ console.log(searchWord);
+ //  if (searchWord === "") {
+ //   alert("Inserisci qualcosa nella ricerca!");
+ //  }
 
-        Newcol.innerHTML = `<div class="card h-100">
-        <div class= "position-relative">
-        <img src= ${result.data[i].album.cover_xl} id =${result.data[i].album.id} onclick='saveIdSessionStorage(${result.data[i].album.id})' class="card-img-top pointer" alt="image playlist">
-        <button onclick="loadSong('${result.data[i].preview}', ${i})" class="btn btn-success rounded-5 d-flex justify-content-center align-items-center p-0 play-button position-absolute bottom-5 end-5 opacity-0"><i class="fas fa-play text-black fs-5"></i></button>
-        </div>
-        <div class="card-body">
-        <h6 class="card-title"><a href="./Artist.html?id=${result.data[i].artist.id}" class="link-underline link-underline-opacity-0 text-white">${result.data[i].artist.name}</a></h6>
-        <p class="card-text">${result.data[i].title}</p>`
-        rowSearch.appendChild(Newcol)
+ fetch(urlFetch + searchWord)
+  .then((response) => {
+   if (response.ok) {
+    return response.json();
+   } else {
+    throw new Error(response.status);
+   }
+  })
+  .then((result) => {
+   console.log(result);
+   for (let i = 0; i < result.data.length; i++) {
+    (function (i) {
+     setTimeout(() => {
+      const Newcol = document.createElement("div");
+      Newcol.classList.add("col-6", "col-md-4", "col-lg-4", "col-xl-3");
+
+      Newcol.innerHTML = `<div class="card h-100">
+            <div class= "position-relative">
+            <img src= ${result.data[i].album.cover_xl} id =${result.data[i].album.id} onclick='saveIdSessionStorage(${result.data[i].album.id})' class="card-img-top pointer" alt="image playlist">
+            <button onclick="loadSong('${result.data[i].preview}', ${i})" class="btn btn-success rounded-5 d-flex justify-content-center align-items-center p-0 play-button position-absolute bottom-5 end-5 opacity-0"><i class="fas fa-play text-black fs-5"></i></button>
+            </div>
+            <div class="card-body">
+            <h6 class="card-title"><a href="./Artist.html?id=${result.data[i].artist.id}" class="link-underline link-underline-opacity-0 text-white">${result.data[i].artist.name}</a></h6>
+            <p class="card-text">${result.data[i].title}</p>`;
+      rowSearch.appendChild(Newcol);
+      if (i === result.data.length - 1) {
+       // Chiamata di hoverButtonPlay solo dopo la creazione dell'ultima card
+       hoverButtonPlay();
       }
-      hoverButtonPlay()
-      songs = [...result.data]
-      console.log('songs', songs)
-    })
-    .catch((error) => {
-      console.log(error)
-    })
+     }, 40 * i);
+    })(i);
+   }
+
+   songs = [...result.data];
+   console.log("songs", songs);
+  })
+  .catch((error) => {
+   console.log(error);
+  });
 }
 
 // salvo l' id delle card (album) nel session storage con il click
